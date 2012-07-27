@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_POSITIONSTATUS" table="R_POSITIONSTATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="POSITIONSTATUS_ID" type="integer">
+            <column name="POSITIONSTATUS_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME"/>
+        </property>
+        <set name="position_chairs" inverse="true">
+            <key>
+                <column name="STATUS"/>
+            </key>
+            <one-to-many class="com.LMS.data.POSITION_CHAIR"/>
+        </set>
+    </class>
+</hibernate-mapping>

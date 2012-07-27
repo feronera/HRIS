@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="getDocById" comment="HQL - Get LMS_BASIC_DOC by docId">
+        <query-param name="id" type="java.lang.Integer"/>
+        FROM LMS_BASIC_DOC doc
+WHERE doc.DOCID =  :id
+    </query>
+    <query name="Q_Chair_GOV" comment="Select the government employee information from POSTION_CHAIR, PIM01 and PIM02.">
+        <query-param name="id" type="java.lang.Integer"/>
+        <query-param name="uid" type="java.lang.Integer"/>
+        select chair.CHAIR_ID as chair_id, chair.POSITIONID as empid
+from POSITION_CHAIR chair
+where (chair_id = :id)
+    </query>
+</hibernate-mapping>

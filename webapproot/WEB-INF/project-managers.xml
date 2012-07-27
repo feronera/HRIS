@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bean scope="singleton" parent="typeManagerBase" class="com.wavemaker.runtime.service.TypeManager" id="typeManager">
+        <property name="types">
+            <map merge="true">
+                <entry key="FlashUploadDownload">
+                    <list>
+                        <value>com.wavemaker.runtime.server.DojoFileUploaderResponse</value>
+                        <value>org.springframework.web.multipart.commons.CommonsMultipartFile</value>
+                        <value>org.springframework.web.multipart.MultipartFile</value>
+                        <value>FlashUploadDownload$WMFile</value>
+                        <value>com.wavemaker.runtime.server.DownloadResponse</value>
+                    </list>
+                </entry>
+                <entry key="LMS">
+                    <list>
+                        <value>com.LMS.data.HR_LEAVE_REQ</value>
+                        <value>com.LMS.data.HR_LEAVE_REQ_STATUS</value>
+                        <value>com.LMS.data.LMS_BASIC_DOC</value>
+                        <value>com.LMS.data.LMS_BASIC_DOC_STATUS</value>
+                        <value>com.LMS.data.LMS_BASIC_DOC_TYPE</value>
+                        <value>com.LMS.data.LMS_BASIC_ROLE</value>
+                        <value>com.LMS.data.LMS_BASIC_USER</value>
+                        <value>com.LMS.data.LMS_BUDGET</value>
+                        <value>com.LMS.data.LMS_ITS</value>
+                        <value>com.LMS.data.LMS_ITS_ABILITY</value>
+                        <value>com.LMS.data.LMS_ITS_INTERN</value>
+                        <value>com.LMS.data.LMS_ITS_INTERNPERIOD</value>
+                        <value>com.LMS.data.LMS_ITS_REQ</value>
+                        <value>com.LMS.data.LMS_ITS_REQ_STATUS</value>
+                        <value>com.LMS.data.LMS_ITS_STATUS</value>
+                        <value>com.LMS.data.LMS_PLAN</value>
+                        <value>com.LMS.data.LMS_PLAN_DOC</value>
+                        <value>com.LMS.data.LMS_PLAN_STATUS</value>
+                        <value>com.LMS.data.LMS_PLAN_TYPE</value>
+                        <value>com.LMS.data.PIM_01_GENERAL</value>
+                        <value>com.LMS.data.PIM_02_EMPLOYEE</value>
+                        <value>com.LMS.data.PMS_PROJECT</value>
+                        <value>com.LMS.data.PMS_PROJECT_ATTACHMENT</value>
+                        <value>com.LMS.data.PMS_PROJECT_MEMBER</value>
+                        <value>com.LMS.data.PMS_PROJECT_MEMBER_POSITION</value>
+                        <value>com.LMS.data.PMS_PROJECT_MEMBER_STATUS</value>
+                        <value>com.LMS.data.PMS_PROJECT_MEMBER_TASK</value>
+                        <value>com.LMS.data.PMS_PROJECT_STATUS</value>
+                        <value>com.LMS.data.PMS_R_PRIORITY</value>
+                        <value>com.LMS.data.PMS_TASK</value>
+                        <value>com.LMS.data.PMS_TASK_ATTACHMENT</value>
+                        <value>com.LMS.data.PMS_TASK_STATUS</value>
+                        <value>com.LMS.data.POSITION_CHAIR</value>
+                        <value>com.LMS.data.POSITION_CHAIR_GOV</value>
+                        <value>com.LMS.data.R_ATTACHMENT_GROUP</value>
+                        <value>com.LMS.data.R_BLOODTYPE</value>
+                        <value>com.LMS.data.R_EDUCATION</value>
+                        <value>com.LMS.data.R_EDUCATIONHONOR</value>
+                        <value>com.LMS.data.R_EDUCATIONLEVEL</value>
+                        <value>com.LMS.data.R_EDUCATIONMAJOR</value>
+                        <value>com.LMS.data.R_EDUCATIONSCHOLAR</value>
+                        <value>com.LMS.data.R_EDUCATIONSCHOOL</value>
+                        <value>com.LMS.data.R_INITIALNAME</value>
+                        <value>com.LMS.data.R_LEAVETIMETYPE</value>
+                        <value>com.LMS.data.R_LEAVETYPE</value>
+                        <value>com.LMS.data.R_LEVEL</value>
+                        <value>com.LMS.data.R_LEVEL_STATUS</value>
+                        <value>com.LMS.data.R_MARIAGESTATUS</value>
+                        <value>com.LMS.data.R_MOVEMENTTYPE</value>
+                        <value>com.LMS.data.R_NATIONALITY</value>
+                        <value>com.LMS.data.R_PERSONALSTATUS</value>
+                        <value>com.LMS.data.R_PERSONALTYPE</value>
+                        <value>com.LMS.data.R_POSITIONSTATUS</value>
+                        <value>com.LMS.data.R_POSITION_MANAGEMENT</value>
+                        <value>com.LMS.data.R_POSITION_MANAGEMENT_STATUS</value>
+                        <value>com.LMS.data.R_POSITION_TYPE</value>
+                        <value>com.LMS.data.R_POSITION_TYPE_STATUS</value>
+                        <value>com.LMS.data.R_POSITION_WORK</value>
+                        <value>com.LMS.data.R_POSITION_WORK_STATUS</value>
+                        <value>com.LMS.data.R_RACE</value>
+                        <value>com.LMS.data.R_RELIGION</value>
+                        <value>com.LMS.data.R_SARALYBENEFIT</value>
+                        <value>com.LMS.data.R_UNIT</value>
+                        <value>com.LMS.data.R_UNITTYPE</value>
+                        <value>com.LMS.data.R_UNIT_REFDOC</value>
+                        <value>com.LMS.data.R_UNIT_REGION</value>
+                        <value>com.LMS.data.R_UNIT_STATUS</value>
+                        <value>com.LMS.data.output.Q_Chair_GOVRtnType</value>
+                    </list>
+                </entry>
+                <entry key="SessionManager">
+                    <list/>
+                </entry>
+                <entry key="runtimeService">
+                    <list>
+                        <value>com.wavemaker.runtime.service.PagingOptions</value>
+                        <value>com.wavemaker.runtime.service.PropertyOptions</value>
+                    </list>
+                </entry>
+                <entry key="securityService">
+                    <list/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

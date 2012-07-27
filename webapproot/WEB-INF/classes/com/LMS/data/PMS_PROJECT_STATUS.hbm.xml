@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PMS_PROJECT_STATUS" table="PMS_PROJECT_STATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="PROJECT_STATUS_ID" type="integer">
+            <column name="PROJECT_STATUS_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="STATUS_NAME" type="string">
+            <column name="STATUS_NAME" length="30" not-null="true"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC"/>
+        </property>
+        <set name="pms_projects" inverse="true">
+            <key>
+                <column name="PROJECT_STATUS_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_PROJECT"/>
+        </set>
+    </class>
+</hibernate-mapping>

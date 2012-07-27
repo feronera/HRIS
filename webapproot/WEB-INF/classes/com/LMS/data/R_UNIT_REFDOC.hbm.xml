@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_UNIT_REFDOC" table="R_UNIT_REFDOC" dynamic-insert="false" dynamic-update="false">
+        <id name="UNITREFDOCID" type="integer">
+            <column name="UNITREFDOCID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="REFDOCNAME" type="string">
+            <column name="REFDOCNAME" not-null="true"/>
+        </property>
+        <set name="r_units" inverse="true">
+            <key>
+                <column name="UNIT_REFDOC"/>
+            </key>
+            <one-to-many class="com.LMS.data.R_UNIT"/>
+        </set>
+    </class>
+</hibernate-mapping>

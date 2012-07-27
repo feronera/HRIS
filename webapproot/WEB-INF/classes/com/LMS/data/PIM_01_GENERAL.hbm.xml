@@ -1,0 +1,78 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PIM_01_GENERAL" table="PIM_01_GENERAL" dynamic-insert="false" dynamic-update="false">
+        <id name="UID" type="integer">
+            <column name="UID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="SEX" type="string">
+            <column name="SEX" length="1" not-null="true"/>
+        </property>
+        <property name="NAMETH" type="string">
+            <column name="NAMETH" length="128"/>
+        </property>
+        <property name="SURNAMETH" type="string">
+            <column name="SURNAMETH" length="128"/>
+        </property>
+        <property name="NAMEEN" type="string">
+            <column name="NAMEEN" length="128"/>
+        </property>
+        <property name="SURNAMEEN" type="string">
+            <column name="SURNAMEEN" length="128"/>
+        </property>
+        <property name="CITIZENID" type="string">
+            <column name="CITIZENID" length="13"/>
+        </property>
+        <property name="BIRTHDATE" type="date">
+            <column name="BIRTHDATE"/>
+        </property>
+        <property name="BIRTHADDRESS" type="string">
+            <column name="BIRTHADDRESS" length="1024"/>
+        </property>
+        <property name="ADDRESS" type="string">
+            <column name="ADDRESS" length="1024"/>
+        </property>
+        <property name="TELNO1" type="string">
+            <column name="TELNO1" length="16"/>
+        </property>
+        <property name="TELNO2" type="string">
+            <column name="TELNO2" length="16"/>
+        </property>
+        <property name="TELNO3" type="string">
+            <column name="TELNO3" length="16"/>
+        </property>
+        <property name="YEARSOFWORK" type="integer">
+            <column name="YEARSOFWORK"/>
+        </property>
+        <many-to-one name="REL_MARIAGESTATUS" class="com.LMS.data.R_MARIAGESTATUS" cascade="none">
+            <column name="MARIAGESTATUSID"/>
+        </many-to-one>
+        <many-to-one name="REL_BLOODTYPE" class="com.LMS.data.R_BLOODTYPE" cascade="none">
+            <column name="BLOODTYPEID"/>
+        </many-to-one>
+        <many-to-one name="REL_RACE" class="com.LMS.data.R_RACE" cascade="none">
+            <column name="RACEID"/>
+        </many-to-one>
+        <many-to-one name="REL_PERSONALTYPE" class="com.LMS.data.R_PERSONALTYPE" cascade="none">
+            <column name="PERSONALTYPE_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_RELIGION" class="com.LMS.data.R_RELIGION" cascade="none">
+            <column name="RELIGIONID"/>
+        </many-to-one>
+        <many-to-one name="REL_NATIONALITY" class="com.LMS.data.R_NATIONALITY" cascade="none">
+            <column name="NATIONALITYID"/>
+        </many-to-one>
+        <many-to-one name="REL_PERSONALSTATUS" class="com.LMS.data.R_PERSONALSTATUS" cascade="none">
+            <column name="PERSONALSTATUSID"/>
+        </many-to-one>
+        <many-to-one name="REL_INITIALNAME" class="com.LMS.data.R_INITIALNAME" cascade="none">
+            <column name="INIT_ID"/>
+        </many-to-one>
+        <set name="hr_leave_reqs" inverse="true">
+            <key>
+                <column name="APPROVER_PIM01"/>
+            </key>
+            <one-to-many class="com.LMS.data.HR_LEAVE_REQ"/>
+        </set>
+    </class>
+</hibernate-mapping>

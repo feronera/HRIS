@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_MOVEMENTTYPE" table="R_MOVEMENTTYPE" dynamic-insert="false" dynamic-update="false">
+        <id name="MOVEMENTTYPEID" type="integer">
+            <column name="MOVEMENTTYPEID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="128"/>
+        </property>
+        <set name="pim_02_employees" inverse="true">
+            <key>
+                <column name="MOVEMENTTYPEID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.PIM_02_EMPLOYEE"/>
+        </set>
+    </class>
+</hibernate-mapping>

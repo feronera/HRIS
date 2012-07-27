@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PMS_R_PRIORITY" table="PMS_R_PRIORITY" dynamic-insert="false" dynamic-update="false">
+        <id name="PRIORITY_ID" type="integer">
+            <column name="PRIORITY_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="PRIORITY_TITLE" type="string">
+            <column name="PRIORITY_TITLE" length="20" not-null="true"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC"/>
+        </property>
+        <set name="pms_tasks" inverse="true">
+            <key>
+                <column name="PRIORITY_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_TASK"/>
+        </set>
+        <set name="pms_projects" inverse="true">
+            <key>
+                <column name="PROJECT_PRIORITY_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_PROJECT"/>
+        </set>
+    </class>
+</hibernate-mapping>

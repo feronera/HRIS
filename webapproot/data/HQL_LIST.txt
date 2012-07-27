@@ -1,0 +1,65 @@
+### HQL LIST ###
+[NAME] Q_Chair_GOV
+[Purpose] Get the "employeeNo(personalNo)" from table PIM02 then get its "UID" to get "NAMETH" and "SURNAMETH" from table PIM01
+[HQL]
+select chair.CHAIR_ID as chair_id, chair.POSITIONID as empid
+-- select chair.CHAIR_ID as chair_id, chair.POSITIONID as empid, pim01.UID as uid, pim01.NAMETH as name, pim02.SURNAMETH as surname
+from POSITION_CHAIR chair
+-- INNER JOIN PIM_01_GENERAL as pim01
+where (chair_id = :id)
+-- where (chair_id = :id) and (uid = :uid)
+[SQL]
+CREATE VIEW DB2INST1.V_PERSONAL_SHOW
+(UNITID, UNITTYPE, UNITNAME, UNITCODE, PERSONTYPEID, PERSONTYPENAME, PERSONALTID, NAMETH, STATUS, SURNAMETH, PERSONTID, CHAIRID, POSITIONTYPEID, POSITIONTYPENAME, POSITIONMANAGEMENTID, POSITIONMANAGEMENTNAME, POSITION_WORK_ID, POSITIONWORKNAME, SPECIALIZATIONID, SPECIALIZATIONNAME, LEVEL_ID, LEVELNAME, POSITIONLEVELLAST, POSITIONSTATUSID, POSITIONSTATUSNAME, PERSONALNO) AS
+SELECT
+   	r_unit.unit_id		 AS unitid,
+   	r_unit.unit_type 		 AS unittype,
+  	r_unit.unit_name 	 AS unitname,
+ 	r_unit.unit_code 		 AS unitcode,
+	r_personaltype.persontype_id 	AS  persontypeid,
+	r_personaltype.name		AS  persontypename,   
+	pim_01_general.persontype_id   AS personalTID,
+	pim_01_general.nameTH        AS nameTH,
+	position_chair.Status AS Status, 
+    pim_01_general.surnameTH     AS surnameTH,
+	position_chair.Person_Type_ID AS personTID,
+    position_chair.chair_ID     	 AS chairid,	
+   	r_position_type.position_type_id         	AS positiontypeid,
+   	r_position_type.name        			 AS positiontypename,
+   	r_position_management.position_management_id  	 AS positionmanagementid,
+   	r_position_management.Name  		 AS positionmanagementname,
+   	r_position_work.position_work_id AS position_work_id,
+   	r_position_work.name        			 AS positionworkname,
+   	r_specialization.id  AS specializationid,
+    r_specialization.specialization AS specializationname,
+    
+	r_level.level_id 			 AS level_id,
+   	r_level.name                 AS levelname,
+  	pim_02_employee.pos_level_last_xxx AS positionlevellast,
+    r_positionstatus.positionstatus_id AS positionstatusid,
+    r_positionstatus.name AS positionstatusname,
+
+	pim_02_employee.personalno   AS personalno
+FROM
+
+	R_Position_Management, 
+	R_Position_Type, 
+	R_Position_Work, 
+	R_Level, 
+	R_Personaltype, 
+	R_Unit, 
+  	position_chair,
+	r_specialization,
+
+	pim_02_employee,
+	pim_01_general,
+	r_positionstatus
+where
+( 
+		(R_Unit.Unit_ID = Position_chair.Unit_ID)	 
+	and(R_Personaltype.Persontype_id = pim_01_general.Persontype_id)
+	and (R_Position_Type.Position_Type_ID = Position_chair.Position_Type_ID) 
+	and(R_Position_Management.Position_Management_ID = Position_chair.Position_Management_ID) 
+	and(R_Position_Work.Position_Work_ID = Position_chair.Position_Work_ID) 
+	and (R_Level.Level_ID = Position_chair.Level_ID) 
+)

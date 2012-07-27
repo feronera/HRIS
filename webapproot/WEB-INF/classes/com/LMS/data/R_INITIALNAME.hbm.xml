@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_INITIALNAME" table="R_INITIALNAME" dynamic-insert="false" dynamic-update="false">
+        <id name="INIT_ID" type="integer">
+            <column name="INIT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="32"/>
+        </property>
+        <property name="NAMEEN" type="string">
+            <column name="NAMEEN" length="32"/>
+        </property>
+        <set name="pim_01_generals" inverse="true">
+            <key>
+                <column name="INIT_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PIM_01_GENERAL"/>
+        </set>
+        <set name="lms_itss" inverse="true">
+            <key>
+                <column name="TITLENAME_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_ITS"/>
+        </set>
+    </class>
+</hibernate-mapping>

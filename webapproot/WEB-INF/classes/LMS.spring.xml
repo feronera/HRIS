@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bean lazy-init="true" scope="singleton" class="com.LMS.LMS" id="LMS">
+        <property name="dataServiceManager">
+            <ref bean="LMSDataService"/>
+        </property>
+        <property name="taskManager">
+            <ref bean="LMSTaskMgr"/>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property value="true" name="ignoreUnresolvablePlaceholders"/>
+        <property name="locations">
+            <list>
+                <value>classpath:LMS.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean lazy-init="true" class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="LMSDataSource">
+        <property value="${LMS.driverClassName}" name="driverClassName"/>
+        <property value="${LMS.connectionUrl}" name="url"/>
+        <property value="${LMS.username}" name="username"/>
+        <property value="${LMS.password}" name="password"/>
+    </bean>
+    <bean lazy-init="true" class="org.springframework.orm.hibernate3.HibernateTransactionManager" id="LMSTxMgr">
+        <property name="sessionFactory">
+            <ref bean="LMSSessionFactory"/>
+        </property>
+    </bean>
+    <bean lazy-init="true" class="org.springframework.orm.hibernate3.HibernateTemplate" id="LMSHibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="LMSSessionFactory"/>
+        </property>
+    </bean>
+    <bean lazy-init="true" class="com.wavemaker.runtime.data.spring.ConfigurationAndSessionFactoryBean" id="LMSSessionFactory">
+        <property value="LMS" name="name"/>
+        <property ref="LMSDataSource" name="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${LMS.dialect}</prop>
+                <prop key="hibernate.transaction.factory_class">
+                    org.hibernate.transaction.JDBCTransactionFactory
+                </prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+            </props>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/LMS/data/HR_LEAVE_REQ.hbm.xml</value>
+                <value>com/LMS/data/HR_LEAVE_REQ_STATUS.hbm.xml</value>
+                <value>com/LMS/data/LMS_BASIC_DOC.hbm.xml</value>
+                <value>com/LMS/data/LMS_BASIC_DOC_STATUS.hbm.xml</value>
+                <value>com/LMS/data/LMS_BASIC_DOC_TYPE.hbm.xml</value>
+                <value>com/LMS/data/LMS_BASIC_ROLE.hbm.xml</value>
+                <value>com/LMS/data/LMS_BASIC_USER.hbm.xml</value>
+                <value>com/LMS/data/LMS_BUDGET.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS_ABILITY.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS_INTERN.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS_INTERNPERIOD.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS_REQ.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS_REQ_STATUS.hbm.xml</value>
+                <value>com/LMS/data/LMS_ITS_STATUS.hbm.xml</value>
+                <value>com/LMS/data/LMS_PLAN.hbm.xml</value>
+                <value>com/LMS/data/LMS_PLAN_DOC.hbm.xml</value>
+                <value>com/LMS/data/LMS_PLAN_STATUS.hbm.xml</value>
+                <value>com/LMS/data/LMS_PLAN_TYPE.hbm.xml</value>
+                <value>com/LMS/data/PIM_01_GENERAL.hbm.xml</value>
+                <value>com/LMS/data/PIM_02_EMPLOYEE.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT_ATTACHMENT.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT_MEMBER.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT_MEMBER_POSITION.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT_MEMBER_STATUS.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT_MEMBER_TASK.hbm.xml</value>
+                <value>com/LMS/data/PMS_PROJECT_STATUS.hbm.xml</value>
+                <value>com/LMS/data/PMS_R_PRIORITY.hbm.xml</value>
+                <value>com/LMS/data/PMS_TASK.hbm.xml</value>
+                <value>com/LMS/data/PMS_TASK_ATTACHMENT.hbm.xml</value>
+                <value>com/LMS/data/PMS_TASK_STATUS.hbm.xml</value>
+                <value>com/LMS/data/POSITION_CHAIR.hbm.xml</value>
+                <value>com/LMS/data/POSITION_CHAIR_GOV.hbm.xml</value>
+                <value>com/LMS/data/R_ATTACHMENT_GROUP.hbm.xml</value>
+                <value>com/LMS/data/R_BLOODTYPE.hbm.xml</value>
+                <value>com/LMS/data/R_EDUCATION.hbm.xml</value>
+                <value>com/LMS/data/R_EDUCATIONHONOR.hbm.xml</value>
+                <value>com/LMS/data/R_EDUCATIONLEVEL.hbm.xml</value>
+                <value>com/LMS/data/R_EDUCATIONMAJOR.hbm.xml</value>
+                <value>com/LMS/data/R_EDUCATIONSCHOLAR.hbm.xml</value>
+                <value>com/LMS/data/R_EDUCATIONSCHOOL.hbm.xml</value>
+                <value>com/LMS/data/R_INITIALNAME.hbm.xml</value>
+                <value>com/LMS/data/R_LEAVETIMETYPE.hbm.xml</value>
+                <value>com/LMS/data/R_LEAVETYPE.hbm.xml</value>
+                <value>com/LMS/data/R_LEVEL.hbm.xml</value>
+                <value>com/LMS/data/R_LEVEL_STATUS.hbm.xml</value>
+                <value>com/LMS/data/R_MARIAGESTATUS.hbm.xml</value>
+                <value>com/LMS/data/R_MOVEMENTTYPE.hbm.xml</value>
+                <value>com/LMS/data/R_NATIONALITY.hbm.xml</value>
+                <value>com/LMS/data/R_PERSONALSTATUS.hbm.xml</value>
+                <value>com/LMS/data/R_PERSONALTYPE.hbm.xml</value>
+                <value>com/LMS/data/R_POSITIONSTATUS.hbm.xml</value>
+                <value>com/LMS/data/R_POSITION_MANAGEMENT.hbm.xml</value>
+                <value>com/LMS/data/R_POSITION_MANAGEMENT_STATUS.hbm.xml</value>
+                <value>com/LMS/data/R_POSITION_TYPE.hbm.xml</value>
+                <value>com/LMS/data/R_POSITION_TYPE_STATUS.hbm.xml</value>
+                <value>com/LMS/data/R_POSITION_WORK.hbm.xml</value>
+                <value>com/LMS/data/R_POSITION_WORK_STATUS.hbm.xml</value>
+                <value>com/LMS/data/R_RACE.hbm.xml</value>
+                <value>com/LMS/data/R_RELIGION.hbm.xml</value>
+                <value>com/LMS/data/R_SARALYBENEFIT.hbm.xml</value>
+                <value>com/LMS/data/R_UNIT.hbm.xml</value>
+                <value>com/LMS/data/R_UNITTYPE.hbm.xml</value>
+                <value>com/LMS/data/R_UNIT_REFDOC.hbm.xml</value>
+                <value>com/LMS/data/R_UNIT_REGION.hbm.xml</value>
+                <value>com/LMS/data/R_UNIT_STATUS.hbm.xml</value>
+                <value>com/LMS/data/app-queries.ql.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean lazy-init="true" class="com.wavemaker.runtime.data.spring.SpringDataServiceManager" id="LMSDataService">
+        <constructor-arg>
+            <value>LMS</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="LMSHibernateTemplate"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="LMSTxMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="LMSTaskMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry value="false" key="useIndividualCRUDOperations"/>
+                <entry value="" key="refreshEntities"/>
+            </map>
+        </constructor-arg>
+    </bean>
+    <bean lazy-init="true" class="com.wavemaker.runtime.data.DefaultTaskManager" id="LMSTaskMgr"/>
+    <bean lazy-init="false" class="com.wavemaker.runtime.service.events.EventWire">
+        <property ref="LMSServiceWire" name="serviceWire"/>
+        <property name="eventListener">
+            <bean class="com.wavemaker.runtime.data.DataServiceEventListener"/>
+        </property>
+    </bean>
+    <bean lazy-init="false" scope="singleton" class="com.wavemaker.runtime.service.reflect.ReflectServiceWire" id="LMSServiceWire">
+        <property value="LMS" name="serviceId"/>
+        <property ref="DataService" name="serviceType"/>
+    </bean>
+</beans>

@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_BASIC_DOC_STATUS" table="LMS_BASIC_DOC_STATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="DOCSTATUSID" type="integer">
+            <column name="DOCSTATUSID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="STATUSNAME" type="string">
+            <column name="STATUSNAME" length="60" not-null="true"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC"/>
+        </property>
+        <set name="lms_basic_docs" inverse="true">
+            <key>
+                <column name="DOCSTATUSID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_BASIC_DOC"/>
+        </set>
+        <set name="lms_plan_docs" inverse="true">
+            <key>
+                <column name="FILESTATUSID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_PLAN_DOC"/>
+        </set>
+    </class>
+</hibernate-mapping>

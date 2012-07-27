@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_PERSONALTYPE" table="R_PERSONALTYPE" dynamic-insert="false" dynamic-update="false">
+        <id name="PERSONTYPE_ID" type="integer">
+            <column name="PERSONTYPE_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="32"/>
+        </property>
+        <set name="pim_01_generals" inverse="true">
+            <key>
+                <column name="PERSONALTYPE_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PIM_01_GENERAL"/>
+        </set>
+        <set name="position_chairs" inverse="true">
+            <key>
+                <column name="PERSON_TYPE_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.POSITION_CHAIR"/>
+        </set>
+    </class>
+</hibernate-mapping>

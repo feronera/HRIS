@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_LEVEL_STATUS" table="R_LEVEL_STATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="LEVEL_STATUS_ID" type="integer">
+            <column name="LEVEL_STATUS_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="STATUS_NAME" type="string">
+            <column name="STATUS_NAME"/>
+        </property>
+        <set name="r_levels" inverse="true">
+            <key>
+                <column name="POS_LEVEL_STATUS"/>
+            </key>
+            <one-to-many class="com.LMS.data.R_LEVEL"/>
+        </set>
+    </class>
+</hibernate-mapping>

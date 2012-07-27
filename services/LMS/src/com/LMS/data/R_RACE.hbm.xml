@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_RACE" table="R_RACE" dynamic-insert="false" dynamic-update="false">
+        <id name="RACEID" type="integer">
+            <column name="RACEID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="32"/>
+        </property>
+        <set name="pim_01_generals" inverse="true">
+            <key>
+                <column name="RACEID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PIM_01_GENERAL"/>
+        </set>
+    </class>
+</hibernate-mapping>

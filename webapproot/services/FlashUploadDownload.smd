@@ -1,0 +1,67 @@
+{
+	"methods": [{
+		"name": "deleteFile",
+		"operationType": null,
+		"parameters": [{
+			"name": "file",
+			"type": "java.lang.String"
+		}],
+		"returnType": null
+	}, {
+		"name": "deleteFiles",
+		"operationType": null,
+		"parameters": [{
+			"name": "files",
+			"type": "[java.lang.String]"
+		}],
+		"returnType": null
+	}, {
+		"name": "downloadFile",
+		"operationType": null,
+		"parameters": [{
+			"name": "file",
+			"type": "java.lang.String"
+		}, {
+			"name": "returnname",
+			"type": "java.lang.String"
+		}],
+		"returnType": "com.wavemaker.runtime.server.DownloadResponse"
+	}, {
+		"name": "listFiles",
+		"operationType": null,
+		"parameters": null,
+		"returnType": "[FlashUploadDownload$WMFile]"
+	}, {
+		"name": "listFilesById",
+		"operationType": null,
+		"parameters": [{
+			"name": "userId",
+			"type": "java.lang.String"
+		}],
+		"returnType": "[FlashUploadDownload$WMFile]"
+	}, {
+		"name": "setUploadDir",
+		"operationType": null,
+		"parameters": [{
+			"name": "s",
+			"type": "java.lang.String"
+		}],
+		"returnType": null
+	}, {
+		"name": "uploadFile",
+		"operationType": null,
+		"parameters": [{
+			"name": "file",
+			"type": "org.springframework.web.multipart.commons.CommonsMultipartFile"
+		}, {
+			"name": "Filename",
+			"type": "java.lang.String"
+		}, {
+			"name": "ignored",
+			"type": "org.springframework.web.multipart.MultipartFile"
+		}],
+		"returnType": "com.wavemaker.runtime.server.DojoFileUploaderResponse"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "FlashUploadDownload.json"
+}

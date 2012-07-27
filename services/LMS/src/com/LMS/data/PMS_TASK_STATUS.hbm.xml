@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PMS_TASK_STATUS" table="PMS_TASK_STATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="TASK_STATUS_ID" type="integer">
+            <column name="TASK_STATUS_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="TASK_STATUS_NAME" type="string">
+            <column name="TASK_STATUS_NAME" length="60" not-null="true"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC"/>
+        </property>
+        <set name="pms_project_member_tasks" inverse="true">
+            <key>
+                <column name="TASK_STATUS_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_PROJECT_MEMBER_TASK"/>
+        </set>
+        <set name="pms_tasks" inverse="true">
+            <key>
+                <column name="TASKSTATUS_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_TASK"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.POSITION_CHAIR_GOV" table="POSITION_CHAIR_GOV" dynamic-insert="false" dynamic-update="false">
+        <id name="CHAIR_ID" type="integer">
+            <column name="CHAIR_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="WI" type="string">
+            <column name="WI" length="4096"/>
+        </property>
+    </class>
+</hibernate-mapping>

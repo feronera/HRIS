@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_BASIC_ROLE" table="LMS_BASIC_ROLE" dynamic-insert="false" dynamic-update="false">
+        <id name="ROLEID" type="integer">
+            <column name="ROLEID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="ROLETITLE" type="string">
+            <column name="ROLETITLE" length="40" not-null="true"/>
+        </property>
+        <property name="ROLECODE" type="string">
+            <column name="ROLECODE" length="10"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC" length="60"/>
+        </property>
+        <set name="lms_basic_users" inverse="true">
+            <key>
+                <column name="ROLEID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_BASIC_USER"/>
+        </set>
+    </class>
+</hibernate-mapping>

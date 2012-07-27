@@ -1,0 +1,34 @@
+{
+	"methods": [{
+		"name": "getAttribute",
+		"operationType": null,
+		"parameters": [{
+			"name": "theName",
+			"type": "java.lang.String"
+		}],
+		"returnType": "java.lang.String"
+	}, {
+		"name": "getId",
+		"operationType": null,
+		"parameters": null,
+		"returnType": "java.lang.String"
+	}, {
+		"name": "invalidateSesssion",
+		"operationType": null,
+		"parameters": null,
+		"returnType": null
+	}, {
+		"name": "setAttribute",
+		"operationType": null,
+		"parameters": [{
+			"name": "theName",
+			"type": "java.lang.String"
+		}, {
+			"name": "theValue",
+			"type": "java.lang.String"
+		}],
+		"returnType": "java.lang.String"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "SessionManager.json"
+}

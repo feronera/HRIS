@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.HR_LEAVE_REQ_STATUS" table="HR_LEAVE_REQ_STATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="LEAVEREQSTATUSID" type="integer">
+            <column name="LEAVEREQSTATUSID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="REQSTATUSNAME" type="string">
+            <column name="REQSTATUSNAME"/>
+        </property>
+        <set name="hr_leave_reqs" inverse="true">
+            <key>
+                <column name="LEAVEREQSTATUSID"/>
+            </key>
+            <one-to-many class="com.LMS.data.HR_LEAVE_REQ"/>
+        </set>
+    </class>
+</hibernate-mapping>

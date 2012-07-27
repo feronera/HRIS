@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_ITS_REQ_STATUS" table="LMS_ITS_REQ_STATUS" dynamic-insert="false" dynamic-update="false">
+        <id name="ITS_REQ_STATUS_ID" type="integer">
+            <column name="ITS_REQ_STATUS_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="REQ_STATUS_NAME" type="string">
+            <column name="REQ_STATUS_NAME"/>
+        </property>
+        <property name="REQ_STATUS_DESC" type="string">
+            <column name="REQ_STATUS_DESC"/>
+        </property>
+        <set name="lms_its_reqs" inverse="true">
+            <key>
+                <column name="REQ_STATUS_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_ITS_REQ"/>
+        </set>
+    </class>
+</hibernate-mapping>

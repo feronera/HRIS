@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_UNITTYPE" table="R_UNITTYPE" dynamic-insert="false" dynamic-update="false">
+        <id name="UNITTYPEID" type="integer">
+            <column name="UNITTYPEID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="64" not-null="true"/>
+        </property>
+        <set name="r_units" inverse="true">
+            <key>
+                <column name="UNIT_TYPE"/>
+            </key>
+            <one-to-many class="com.LMS.data.R_UNIT"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_ITS_REQ" table="LMS_ITS_REQ" dynamic-insert="false" dynamic-update="false">
+        <id name="ITS_REQ_ID" type="integer">
+            <column name="ITS_REQ_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="MEMO" type="string">
+            <column name="MEMO"/>
+        </property>
+        <property name="REQUESTOR_ID" type="integer">
+            <column name="REQUESTOR_ID"/>
+        </property>
+        <property name="REQ_AMOUNT" type="integer">
+            <column name="REQ_AMOUNT"/>
+        </property>
+        <property name="REQ_REASON" type="string">
+            <column name="REQ_REASON"/>
+        </property>
+        <property name="REQ_TS" type="timestamp">
+            <column name="REQ_TS"/>
+        </property>
+        <property name="UPDATEBY_ID" type="integer">
+            <column name="UPDATEBY_ID"/>
+        </property>
+        <property name="UPDATE_TS" type="timestamp">
+            <column name="UPDATE_TS"/>
+        </property>
+        <property name="CREATEBY_ID" type="integer">
+            <column name="CREATEBY_ID"/>
+        </property>
+        <property name="CREATE_TS" type="timestamp">
+            <column name="CREATE_TS"/>
+        </property>
+        <many-to-one name="REL_EDUCATIONLEVEL" class="com.LMS.data.R_EDUCATIONLEVEL" cascade="none">
+            <column name="EDUCATION_LEVEL_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_ITS_ABILITY" class="com.LMS.data.LMS_ITS_ABILITY" cascade="none">
+            <column name="REQUEST_ABILITY_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_UNIT" class="com.LMS.data.R_UNIT" cascade="none">
+            <column name="REQUESTER_UNIT_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_INTERNPERIOD" class="com.LMS.data.LMS_ITS_INTERNPERIOD" cascade="none">
+            <column name="INTERN_PERIOD_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_REQ_STATUS" class="com.LMS.data.LMS_ITS_REQ_STATUS" cascade="none">
+            <column name="REQ_STATUS_ID"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

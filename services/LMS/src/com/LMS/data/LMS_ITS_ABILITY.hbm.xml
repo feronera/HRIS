@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_ITS_ABILITY" table="LMS_ITS_ABILITY" dynamic-insert="false" dynamic-update="false">
+        <id name="ITS_ABILITY_ID" type="integer">
+            <column name="ITS_ABILITY_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="ABILITY_NAME" type="string">
+            <column name="ABILITY_NAME" not-null="true"/>
+        </property>
+        <set name="lms_its_reqs" inverse="true">
+            <key>
+                <column name="REQUEST_ABILITY_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_ITS_REQ"/>
+        </set>
+    </class>
+</hibernate-mapping>

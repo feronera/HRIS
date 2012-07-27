@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_ITS_INTERNPERIOD" table="LMS_ITS_INTERNPERIOD" dynamic-insert="false" dynamic-update="false">
+        <id name="INTERN_PERIOD_ID" type="integer">
+            <column name="INTERN_PERIOD_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="PERIOD" type="string">
+            <column name="PERIOD"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC"/>
+        </property>
+        <set name="lms_its_reqs" inverse="true">
+            <key>
+                <column name="INTERN_PERIOD_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_ITS_REQ"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_POSITION_MANAGEMENT" table="R_POSITION_MANAGEMENT" dynamic-insert="false" dynamic-update="false">
+        <id name="POSITION_MANAGEMENT_ID" type="integer">
+            <column name="POSITION_MANAGEMENT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME"/>
+        </property>
+        <property name="ORDERDOCREF" type="string">
+            <column name="ORDERDOCREF"/>
+        </property>
+        <property name="EFFECTIVEDATE" type="date">
+            <column name="EFFECTIVEDATE"/>
+        </property>
+        <property name="ORDERNO" type="string">
+            <column name="ORDERNO"/>
+        </property>
+        <property name="ORDERDATE" type="date">
+            <column name="ORDERDATE"/>
+        </property>
+        <property name="CANCELDATE" type="date">
+            <column name="CANCELDATE"/>
+        </property>
+        <property name="MEMO" type="string">
+            <column name="MEMO" length="512"/>
+        </property>
+        <property name="CREATEBYID" type="integer">
+            <column name="CREATEBYID"/>
+        </property>
+        <property name="CREATETS" type="timestamp">
+            <column name="CREATETS"/>
+        </property>
+        <property name="MODIFYBYID" type="integer">
+            <column name="MODIFYBYID"/>
+        </property>
+        <property name="MODIFYTS" type="timestamp">
+            <column name="MODIFYTS"/>
+        </property>
+        <many-to-one name="REL_POS_MNMT_STAT" class="com.LMS.data.R_POSITION_MANAGEMENT_STATUS" cascade="none">
+            <column name="POS_MANAGE_STATUS"/>
+        </many-to-one>
+        <set name="position_chairs" inverse="true">
+            <key>
+                <column name="POSITION_MANAGEMENT_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.POSITION_CHAIR"/>
+        </set>
+    </class>
+</hibernate-mapping>

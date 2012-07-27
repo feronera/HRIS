@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_ITS_INTERN" table="LMS_ITS_INTERN" dynamic-insert="false" dynamic-update="false">
+        <id name="LMS_INTERN_ID" type="integer">
+            <column name="LMS_INTERN_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="CREATEBYID" type="integer">
+            <column name="CREATEBYID" not-null="true"/>
+        </property>
+        <property name="CREATETS" type="integer">
+            <column name="CREATETS" not-null="true"/>
+        </property>
+        <property name="UPDATEBYID" type="integer">
+            <column name="UPDATEBYID" not-null="true"/>
+        </property>
+        <property name="UPDATETS" type="integer">
+            <column name="UPDATETS" not-null="true"/>
+        </property>
+        <property name="MEMO" type="integer">
+            <column name="MEMO"/>
+        </property>
+    </class>
+</hibernate-mapping>

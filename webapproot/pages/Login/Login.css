@@ -1,0 +1,7 @@
+.Login .Login-loginErrorMsg {
+	font-size: 12px; color: red
+}
+body.tundra .Login .wmlayout .Login-wmTitle {
+	<div id="login_wmTitle">Test</div>
+}
+

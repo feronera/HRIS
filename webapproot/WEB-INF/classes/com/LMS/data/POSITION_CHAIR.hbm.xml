@@ -1,0 +1,84 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.POSITION_CHAIR" table="POSITION_CHAIR" dynamic-insert="false" dynamic-update="false">
+        <id name="CHAIR_ID" type="integer">
+            <column name="CHAIR_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="STEP_SALARY" type="big_decimal">
+            <column name="STEP_SALARY" length="10" precision="2"/>
+        </property>
+        <property name="POSITION_SALARY" type="integer">
+            <column name="POSITION_SALARY" length="10" precision="2"/>
+        </property>
+        <property name="EFFECTIVEDATE" type="date">
+            <column name="EFFECTIVEDATE"/>
+        </property>
+        <property name="SALARY_TYPE" type="integer">
+            <column name="SALARY_TYPE"/>
+        </property>
+        <property name="COMMENT" type="string">
+            <column name="COMMENT" length="2048"/>
+        </property>
+        <property name="SALARY" type="big_decimal">
+            <column name="SALARY" length="10" precision="2"/>
+        </property>
+        <property name="MINISTRY_CMD_NUMBER" type="integer">
+            <column name="MINISTRY_CMD_NUMBER"/>
+        </property>
+        <property name="MINISTRY_CMD_YEAR" type="integer">
+            <column name="MINISTRY_CMD_YEAR"/>
+        </property>
+        <property name="MINISTRY_CMD_DATE" type="date">
+            <column name="MINISTRY_CMD_DATE"/>
+        </property>
+        <property name="MINISTRY_BOOK_NUMBER" type="integer">
+            <column name="MINISTRY_BOOK_NUMBER" length="64"/>
+        </property>
+        <property name="MINISTRY_BOOK_DATE" type="date">
+            <column name="MINISTRY_BOOK_DATE"/>
+        </property>
+        <property name="MINISTRY_COMMENT" type="string">
+            <column name="MINISTRY_COMMENT" length="1024"/>
+        </property>
+        <property name="STATUS_MINISTRY" type="string">
+            <column name="STATUS_MINISTRY"/>
+        </property>
+        <property name="CREATEBYID" type="integer">
+            <column name="CREATEBYID"/>
+        </property>
+        <property name="CREATETS" type="timestamp">
+            <column name="CREATETS"/>
+        </property>
+        <property name="MODIFYBYID" type="integer">
+            <column name="MODIFYBYID"/>
+        </property>
+        <property name="MODIFYTS" type="timestamp">
+            <column name="MODIFYTS"/>
+        </property>
+        <property name="POSITIONID" type="integer">
+            <column name="POSITIONID"/>
+        </property>
+        <many-to-one name="REL_POSITION_TYPE" class="com.LMS.data.R_POSITION_TYPE" cascade="none">
+            <column name="POSITION_TYPE_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_UNIT" class="com.LMS.data.R_UNIT" cascade="none">
+            <column name="UNIT_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_POS_MANAGE" class="com.LMS.data.R_POSITION_MANAGEMENT" cascade="none">
+            <column name="POSITION_MANAGEMENT_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_POS_WORK" class="com.LMS.data.R_POSITION_WORK" cascade="none">
+            <column name="POSITION_WORK_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_POS_LEVEL" class="com.LMS.data.R_LEVEL" cascade="none">
+            <column name="LEVELID"/>
+        </many-to-one>
+        <many-to-one name="REL_POSONAL_TYPE" class="com.LMS.data.R_PERSONALTYPE" cascade="none">
+            <column name="PERSON_TYPE_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_POSITIONSTATUS" class="com.LMS.data.R_POSITIONSTATUS" cascade="none">
+            <column name="STATUS"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

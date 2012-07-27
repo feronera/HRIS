@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_EDUCATIONMAJOR" table="R_EDUCATIONMAJOR" dynamic-insert="false" dynamic-update="false">
+        <id name="EDUCATIONMAJORID" type="integer">
+            <column name="EDUCATIONMAJORID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="128"/>
+        </property>
+        <set name="lms_itss" inverse="true">
+            <key>
+                <column name="FACULTY_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_ITS"/>
+        </set>
+    </class>
+</hibernate-mapping>

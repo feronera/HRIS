@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="FlashUploadDownload.spring.xml" type="JavaService" CRUDService="false" class="FlashUploadDownload" id="FlashUploadDownload">
+    <operation name="uploadFile">
+        <parameter isList="false" typeRef="org.springframework.web.multipart.commons.CommonsMultipartFile" name="file"/>
+        <parameter isList="false" typeRef="java.lang.String" name="Filename"/>
+        <parameter isList="false" typeRef="org.springframework.web.multipart.MultipartFile" name="ignored"/>
+        <return isList="false" typeRef="com.wavemaker.runtime.server.DojoFileUploaderResponse"/>
+    </operation>
+    <operation name="listFiles">
+        <return isList="true" typeRef="FlashUploadDownload$WMFile"/>
+    </operation>
+    <operation name="listFilesById">
+        <parameter isList="false" typeRef="java.lang.String" name="userId"/>
+        <return isList="true" typeRef="FlashUploadDownload$WMFile"/>
+    </operation>
+    <operation name="setUploadDir">
+        <parameter isList="false" typeRef="java.lang.String" name="s"/>
+    </operation>
+    <operation name="deleteFiles">
+        <parameter isList="true" typeRef="java.lang.String" name="files"/>
+    </operation>
+    <operation name="downloadFile">
+        <parameter isList="false" typeRef="java.lang.String" name="file"/>
+        <parameter isList="false" typeRef="java.lang.String" name="returnname"/>
+        <return isList="false" typeRef="com.wavemaker.runtime.server.DownloadResponse"/>
+    </operation>
+    <operation name="deleteFile">
+        <parameter isList="false" typeRef="java.lang.String" name="file"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="false" name="DojoFileUploaderResponse" javaType="com.wavemaker.runtime.server.DojoFileUploaderResponse">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="error"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="height"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="path"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="type"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="width"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="CommonsMultipartFile" javaType="org.springframework.web.multipart.commons.CommonsMultipartFile">
+            <element allowNull="false" isList="true" typeRef="byte" name="bytes"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="contentType"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="empty"/>
+            <element allowNull="false" isList="false" typeRef="org.apache.commons.fileupload.FileItem" name="fileItem"/>
+            <element allowNull="false" isList="false" typeRef="java.io.InputStream" name="inputStream"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="originalFilename"/>
+            <element allowNull="false" isList="false" typeRef="long" name="size"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="storageDescription"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="MultipartFile" javaType="org.springframework.web.multipart.MultipartFile">
+            <element allowNull="false" isList="true" typeRef="byte" name="bytes"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="contentType"/>
+            <element allowNull="false" isList="false" typeRef="boolean" name="empty"/>
+            <element allowNull="false" isList="false" typeRef="java.io.InputStream" name="inputStream"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="originalFilename"/>
+            <element allowNull="false" isList="false" typeRef="long" name="size"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="WMFile" javaType="FlashUploadDownload$WMFile">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="long" name="size"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="type"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" name="DownloadResponse" javaType="com.wavemaker.runtime.server.DownloadResponse">
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="contentType"/>
+            <element allowNull="false" isList="false" typeRef="java.io.InputStream" name="contents"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="fileName"/>
+        </dataobject>
+    </dataobjects>
+</service>

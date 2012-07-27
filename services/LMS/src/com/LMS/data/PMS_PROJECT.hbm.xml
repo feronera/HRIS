@@ -1,0 +1,78 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PMS_PROJECT" table="PMS_PROJECT" dynamic-insert="false" dynamic-update="false">
+        <id name="PROJECT_ID" type="integer">
+            <column name="PROJECT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="PROJECT_NAME" type="string">
+            <column name="PROJECT_NAME"/>
+        </property>
+        <property name="PROJECT_GOAL" type="string">
+            <column name="PROJECT_GOAL"/>
+        </property>
+        <property name="OWNER_EMPNO" type="integer">
+            <column name="OWNER_EMPNO"/>
+        </property>
+        <property name="STARTDATE" type="date">
+            <column name="STARTDATE"/>
+        </property>
+        <property name="FINISHDATE" type="date">
+            <column name="FINISHDATE"/>
+        </property>
+        <property name="PROGRESS" type="float">
+            <column name="PROGRESS" length="3" precision="2"/>
+        </property>
+        <property name="OTHER_DETAILS" type="string">
+            <column name="OTHER_DETAILS"/>
+        </property>
+        <property name="CREATEBYID" type="integer">
+            <column name="CREATEBYID"/>
+        </property>
+        <property name="CREATETS" type="timestamp">
+            <column name="CREATETS"/>
+        </property>
+        <property name="MODIFYBYID" type="integer">
+            <column name="MODIFYBYID"/>
+        </property>
+        <property name="MODIFYTS" type="timestamp">
+            <column name="MODIFYTS"/>
+        </property>
+        <property name="BUDGET" type="big_decimal">
+            <column name="BUDGET" precision="2"/>
+        </property>
+        <property name="PM" type="string">
+            <column name="PM" length="60"/>
+        </property>
+        <property name="PROJECT_SITE" type="string">
+            <column name="PROJECT_SITE"/>
+        </property>
+        <property name="ISACTIVE" type="boolean">
+            <column name="ISACTIVE"/>
+        </property>
+        <many-to-one name="REL_PROJECT_STATUS" class="com.LMS.data.PMS_PROJECT_STATUS" cascade="none">
+            <column name="PROJECT_STATUS_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_PROJECT_PRIORITY" class="com.LMS.data.PMS_R_PRIORITY" cascade="none">
+            <column name="PROJECT_PRIORITY_ID"/>
+        </many-to-one>
+        <set name="pms_project_members" inverse="true">
+            <key>
+                <column name="PROJECTID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_PROJECT_MEMBER"/>
+        </set>
+        <set name="pms_tasks" inverse="true">
+            <key>
+                <column name="PROJECT_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_TASK"/>
+        </set>
+        <set name="pms_project_attachments" inverse="true">
+            <key>
+                <column name="PROJECT_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_PROJECT_ATTACHMENT"/>
+        </set>
+    </class>
+</hibernate-mapping>

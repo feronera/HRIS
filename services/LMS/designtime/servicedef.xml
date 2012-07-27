@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="LMS.spring.xml" type="DataService" CRUDService="true" class="com.LMS.LMS" id="LMS">
+    <operation name="q_Chair_GOV" operationType="other">
+        <parameter isList="false" typeRef="java.lang.Integer" name="id"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="uid"/>
+        <return isList="false" typeRef="com.LMS.data.output.Q_Chair_GOVRtnType"/>
+    </operation>
+    <operation name="getDocById" operationType="hqlquery">
+        <parameter isList="false" typeRef="java.lang.Integer" name="id"/>
+        <return isList="true" typeRef="com.LMS.data.LMS_BASIC_DOC"/>
+    </operation>
+    <dataobjects>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.HR_LEAVE_REQ">
+            <element allowNull="false" isList="false" typeRef="java.math.BigInteger" name="LEAVEREQID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="STARTDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="FINISHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CONTACTADDRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISAPPROVE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="TOTALLEAVEDAY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="LEAVER_PIM02"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_LEAVETYPE" name="REL_LEAVETYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_LEAVETIMETYPE" name="REL_LEAVETIMETYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.HR_LEAVE_REQ_STATUS" name="REL_LEAVEREQSTATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PIM_01_GENERAL" name="REL_LEAVER_PIM01"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PIM_01_GENERAL" name="REL_APPROVER_PIM01"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.HR_LEAVE_REQ_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="LEAVEREQSTATUSID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="REQSTATUSNAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.HR_LEAVE_REQ" name="hr_leave_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_BASIC_DOC">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="DOCID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="TITLE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="OTHERDETAILS"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigInteger" name="FILESIZE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILEPATH"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="OWNERID"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="LASTMODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="LASTMODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DOCNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="DOCDATE"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="FILENAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILEEXT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_BASIC_DOC_TYPE" name="rel_DOCTYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_BASIC_DOC_STATUS" name="rel_DOCSTATUS"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_BASIC_DOC_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="DOCSTATUSID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="STATUSNAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_BASIC_DOC" name="lms_basic_docs"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_PLAN_DOC" name="lms_plan_docs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_BASIC_DOC_TYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="DOCTYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="DOCTYPE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_BASIC_DOC" name="lms_basic_docs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_BASIC_ROLE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ROLEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="ROLETITLE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ROLECODE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_BASIC_USER" name="lms_basic_users"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_BASIC_USER">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="USERID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="USERNAME"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="TENANTID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="ROLECODE"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="EMPLOYEENO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="FOREGETPASSWORDNO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="PASSWORD"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="EMAIL"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.LMS_BASIC_ROLE" name="rel"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_BUDGET">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="id">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ITSID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FIRSTNAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="LASTNAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="SEX"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="BIRTHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CITIZEN_ID"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ADDRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TELEPHONENO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="EMAIL"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="REGIST_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="STARTDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="FINISHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ABILITY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CONTACTPERSON"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CONTACTPERSON_DETAILS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_INITIALNAME" name="REL_TITLENAME"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_EDUCATIONSCHOOL" name="REL_ACADEMIC"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_EDUCATIONMAJOR" name="REL_MAJOR"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_ITS_STATUS" name="REL_ITS_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_EDUCATIONLEVEL" name="REL_EDU_LEVEL"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS_ABILITY">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ITS_ABILITY_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="ABILITY_NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS_REQ" name="lms_its_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS_INTERN">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="LMS_INTERN_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="CREATETS"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UPDATEBYID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UPDATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MEMO"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS_INTERNPERIOD">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="INTERN_PERIOD_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PERIOD"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS_REQ" name="lms_its_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS_REQ">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ITS_REQ_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="REQUESTOR_ID"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="REQ_AMOUNT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="REQ_REASON"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="REQ_TS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="UPDATEBY_ID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="UPDATE_TS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBY_ID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATE_TS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_EDUCATIONLEVEL" name="REL_EDUCATIONLEVEL"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_ITS_ABILITY" name="REL_ITS_ABILITY"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT" name="REL_UNIT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_ITS_INTERNPERIOD" name="REL_INTERNPERIOD"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_ITS_REQ_STATUS" name="REL_REQ_STATUS"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS_REQ_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ITS_REQ_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="REQ_STATUS_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="REQ_STATUS_DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS_REQ" name="lms_its_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_ITS_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ITS_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="STATUSNAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS" name="lms_itss"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_PLAN">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PLANID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="YEAROFPLAN"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PLANTITLE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="APPROVEDBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="APPROVEDTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_PLAN_STATUS" name="REL_PLAN_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_PLAN_TYPE" name="REL_PLAN_TYPE"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_PLAN_DOC" name="REL_PLAN_DOC"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_PLAN_DOC">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="DOCID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILENAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILETYPE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="FILESIZE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="NUMBEROFDOWNLOAD"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILEPATH"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_BASIC_DOC_STATUS" name="REL_DOC_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.LMS_PLAN" name="REL_DOC_PLAN"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_PLAN_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PLANSTATUSID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="STATUSNAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_PLAN" name="lms_plans"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.LMS_PLAN_TYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PLANTYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PLANTYPENAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_PLAN" name="lms_plans"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PIM_01_GENERAL">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="SEX"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAMETH"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="SURNAMETH"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAMEEN"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="SURNAMEEN"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CITIZENID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="BIRTHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="BIRTHADDRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ADDRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TELNO1"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TELNO2"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TELNO3"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="YEARSOFWORK"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_MARIAGESTATUS" name="REL_MARIAGESTATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_BLOODTYPE" name="REL_BLOODTYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_RACE" name="REL_RACE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_PERSONALTYPE" name="REL_PERSONALTYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_RELIGION" name="REL_RELIGION"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_NATIONALITY" name="REL_NATIONALITY"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_PERSONALSTATUS" name="REL_PERSONALSTATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_INITIALNAME" name="REL_INITIALNAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.HR_LEAVE_REQ" name="hr_leave_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PIM_02_EMPLOYEE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POSITIONID"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="PICID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PERSONALNO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TAXNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="EMPLOYDATE"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="ACTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POS_LEVEL_LAST_XXX"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Character" name="RETIREDYEAR"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CONTACTADDRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POS_LEVEL_NEW_XXX"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="SALARY"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="DATEOUTCONTRACT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="LICENSEDPROFESSIONALNO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CMD_ACQUIRE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="WORKING_POSITION"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.R_MOVEMENTTYPE" name="REL_R_MOVEMENTTYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_SARALYBENEFIT" name="REL_R_SALARYBENEFIT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT" name="REL_R_UNIT"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PROJECT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PROJECT_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PROJECT_GOAL"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="OWNER_EMPNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="STARTDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="FINISHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Float" name="PROGRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="OTHER_DETAILS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="BUDGET"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PM"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PROJECT_SITE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_PROJECT_STATUS" name="REL_PROJECT_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_R_PRIORITY" name="REL_PROJECT_PRIORITY"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_MEMBER" name="pms_project_members"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_TASK" name="pms_tasks"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_ATTACHMENT" name="pms_project_attachments"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT_ATTACHMENT">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ATTACHMENT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILENAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILECONTENT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILEPATH"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="FILESIZE"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.PMS_PROJECT" name="REL_PROJECT_ATTACHMENT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_ATTACHMENT_GROUP" name="REL_ATTACHMENT_GROUP"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT_MEMBER">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PJ_MEMBER_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EMP_ID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="JOINTS"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="DISJOINTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Currency" name="COST_MANDAY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NOTE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PROJECTROLE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_PROJECT_MEMBER_STATUS" name="REL_PMS_MEMBER_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_PROJECT_MEMBER_POSITION" name="REL_PROJECT_POS"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.PMS_PROJECT" name="REL_PROJECT"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_MEMBER_TASK" name="pms_project_member_tasks"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT_MEMBER_POSITION">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PROJ_MEMBER_POS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="POS_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="PMS_POS_CODE"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_MEMBER" name="pms_project_members"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT_MEMBER_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PMS_MEMBER_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="MEMBER_STATUS_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_MEMBER" name="pms_project_members"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT_MEMBER_TASK">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="MEMBER_TASK_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="PROGRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="STARTDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="FINISHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISACTIVE"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.PMS_TASK" name="REL_TASKID"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_TASK_STATUS" name="REL_TASK_STATUS"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.PMS_PROJECT_MEMBER" name="REL_PROJ_MEMBER_ID"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PROJECT_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="STATUS_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT" name="pms_projects"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_R_PRIORITY">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PRIORITY_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="PRIORITY_TITLE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_TASK" name="pms_tasks"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT" name="pms_projects"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_TASK">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="TASKID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TASK_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="TASK_GOAL"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NOTE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Boolean" name="ISMILESTONE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="PROGRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Currency" name="COST_BASELINE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Currency" name="COST_TOTAL"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="STARTDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="FINISHDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="DEADLINEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="ISACTIVE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_TASK_STATUS" name="REL_PMS_TASK_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.PMS_R_PRIORITY" name="REL_R_PRIORITY"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_MEMBER_TASK" name="pms_project_member_tasks"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.PMS_PROJECT" name="REL_PROJECT_ID"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_TASK_ATTACHMENT" name="pms_task_attachments"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_TASK_ATTACHMENT">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ATTACHMENT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILENAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILEPATH"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="FILECONTENT"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="FILESIZE"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.PMS_TASK" name="REL_TASK_ATTACHMENT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_ATTACHMENT_GROUP" name="REL_ATTACHMENT_GROUP"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_TASK_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="TASK_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="TASK_STATUS_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_MEMBER_TASK" name="pms_project_member_tasks"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_TASK" name="pms_tasks"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.POSITION_CHAIR">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="CHAIR_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="STEP_SALARY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POSITION_SALARY"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="EFFECTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="SALARY_TYPE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="COMMENT"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="SALARY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MINISTRY_CMD_NUMBER"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MINISTRY_CMD_YEAR"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MINISTRY_CMD_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MINISTRY_BOOK_NUMBER"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MINISTRY_BOOK_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MINISTRY_COMMENT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="STATUS_MINISTRY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POSITIONID"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_TYPE" name="REL_POSITION_TYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT" name="REL_UNIT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_MANAGEMENT" name="REL_POS_MANAGE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_WORK" name="REL_POS_WORK"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_LEVEL" name="REL_POS_LEVEL"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_PERSONALTYPE" name="REL_POSONAL_TYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITIONSTATUS" name="REL_POSITIONSTATUS"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.POSITION_CHAIR_GOV">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="CHAIR_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <require>insert</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="WI"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_ATTACHMENT_GROUP">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ATTACHMENT_GROUP_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="GROUPNAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_PROJECT_ATTACHMENT" name="pms_project_attachments"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PMS_TASK_ATTACHMENT" name="pms_task_attachments"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_BLOODTYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="BLOODTYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_EDUCATION">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EDUCATIONID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="EDUCATIONCODE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="EDUCATIONCODE_EN"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME_EN"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_EDUCATIONHONOR">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EDUCATIONHONORID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_EDUCATIONLEVEL">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EDUCATIONLEVELID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS" name="lms_itss"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS_REQ" name="lms_its_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_EDUCATIONMAJOR">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EDUCATIONMAJORID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS" name="lms_itss"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_EDUCATIONSCHOLAR">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EDUCATIONSCHOLARID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_EDUCATIONSCHOOL">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="EDUCATIONSCHOOLID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS" name="lms_itss"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_INITIALNAME">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="INIT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAMEEN"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS" name="lms_itss"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_LEAVETIMETYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="LEAVETIMETYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.HR_LEAVE_REQ" name="hr_leave_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_LEAVETYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="LEAVETYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.HR_LEAVE_REQ" name="hr_leave_reqs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_LEVEL">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="LEVEL_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERDOCREF"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="ORDERDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="EFFECTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CANCELDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_TYPE" name="REL_POSITION_TYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_LEVEL_STATUS" name="REL_LEVEL_STATUS"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_LEVEL_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="LEVEL_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="STATUS_NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_LEVEL" name="r_levels"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_MARIAGESTATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="MARIAGESTATUSID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_MOVEMENTTYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="MOVEMENTTYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_02_EMPLOYEE" name="pim_02_employees"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_NATIONALITY">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="NATIONALITYID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_PERSONALSTATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PERSONALSTATUSID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_PERSONALTYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PERSONTYPE_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITIONSTATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POSITIONSTATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITION_MANAGEMENT">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POSITION_MANAGEMENT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERDOCREF"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="EFFECTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="ORDERDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CANCELDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_MANAGEMENT_STATUS" name="REL_POS_MNMT_STAT"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITION_MANAGEMENT_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POS_MANAGE_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="STATUS_NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_POSITION_MANAGEMENT" name="r_position_managements"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITION_TYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POSITION_TYPE_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERSOURCE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="ORDERDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="EFFECTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CANCELDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_TYPE_STATUS" name="REL_POSITION_TYPE_STATUS"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_LEVEL" name="r_levels"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITION_TYPE_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POSITION_TYPE_STAT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_POSITION_TYPE" name="r_position_types"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITION_WORK">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POSITION_WORK_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERDOCREF"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDERNO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="ORDERDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="EFFECTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CANCELDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="MEMO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_WORK_STATUS" name="REL_POS_WORK_STATUS"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_POSITION_WORK_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="POSITION_WORK_STAT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="STATUS_NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_POSITION_WORK" name="r_position_works"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_RACE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="RACEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_RELIGION">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="RELIGIONID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_01_GENERAL" name="pim_01_generals"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_SARALYBENEFIT">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="SARALYBENEFITID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_02_EMPLOYEE" name="pim_02_employees"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_UNIT">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UNIT_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="UNIT_CODE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="UNIT_NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="APPROVE_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="AFFECTIVE_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="COMMENT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="ORDER_NO"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="ORDER_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CANCEL_DATE"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.LMS_ITS_REQ" name="lms_its_reqs"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNITTYPE" name="REL_UNITTYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT_STATUS" name="REL_UNIT_STATUS"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT_REGION" name="REL_UNIT_REGION"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT_REFDOC" name="REL_UNIT_REFDOC"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT" name="REL_UNIT_PARENT"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_02_EMPLOYEE" name="pim_02_employees"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_UNITTYPE">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UNITTYPEID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_UNIT_REFDOC">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UNITREFDOCID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="REFDOCNAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_UNIT_REGION">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UNIT_REGION_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
+        </dataobject>
+        <dataobject supportsQuickData="true" javaType="com.LMS.data.R_UNIT_STATUS">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UNIT_STATUS_ID">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="NAME"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_Chair_GOVRtnType">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="chair_id"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="empid"/>
+        </dataobject>
+    </dataobjects>
+</service>

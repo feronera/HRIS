@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PMS_TASK_ATTACHMENT" table="PMS_TASK_ATTACHMENT" dynamic-insert="false" dynamic-update="false">
+        <id name="ATTACHMENT_ID" type="integer">
+            <column name="ATTACHMENT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="FILENAME" type="string">
+            <column name="FILENAME"/>
+        </property>
+        <property name="FILEPATH" type="string">
+            <column name="FILEPATH"/>
+        </property>
+        <property name="FILECONTENT" type="string">
+            <column name="FILECONTENT"/>
+        </property>
+        <property name="FILESIZE" type="big_decimal">
+            <column name="FILESIZE" precision="2"/>
+        </property>
+        <many-to-one name="REL_TASK_ATTACHMENT" class="com.LMS.data.PMS_TASK" cascade="none">
+            <column name="TASK_ID" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="REL_ATTACHMENT_GROUP" class="com.LMS.data.R_ATTACHMENT_GROUP" cascade="none">
+            <column name="ATTACHMENT_GROUP_ID"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

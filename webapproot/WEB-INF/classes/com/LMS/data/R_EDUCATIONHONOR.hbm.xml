@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_EDUCATIONHONOR" table="R_EDUCATIONHONOR" dynamic-insert="false" dynamic-update="false">
+        <id name="EDUCATIONHONORID" type="integer">
+            <column name="EDUCATIONHONORID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="128"/>
+        </property>
+    </class>
+</hibernate-mapping>

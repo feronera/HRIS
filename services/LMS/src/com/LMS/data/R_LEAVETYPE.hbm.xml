@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_LEAVETYPE" table="R_LEAVETYPE" dynamic-insert="false" dynamic-update="false">
+        <id name="LEAVETYPEID" type="integer">
+            <column name="LEAVETYPEID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="NAME" type="string">
+            <column name="NAME" length="128"/>
+        </property>
+        <set name="hr_leave_reqs" inverse="true">
+            <key>
+                <column name="LEAVETYPEID"/>
+            </key>
+            <one-to-many class="com.LMS.data.HR_LEAVE_REQ"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.R_UNIT" table="R_UNIT" dynamic-insert="false" dynamic-update="false">
+        <id name="UNIT_ID" type="integer">
+            <column name="UNIT_ID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="UNIT_CODE" type="string">
+            <column name="UNIT_CODE" length="32"/>
+        </property>
+        <property name="UNIT_NAME" type="string">
+            <column name="UNIT_NAME" length="512"/>
+        </property>
+        <property name="APPROVE_DATE" type="date">
+            <column name="APPROVE_DATE"/>
+        </property>
+        <property name="AFFECTIVE_DATE" type="date">
+            <column name="AFFECTIVE_DATE"/>
+        </property>
+        <property name="COMMENT" type="string">
+            <column name="COMMENT" length="2048"/>
+        </property>
+        <property name="ORDER_NO" type="string">
+            <column name="ORDER_NO" length="256"/>
+        </property>
+        <property name="ORDER_DATE" type="date">
+            <column name="ORDER_DATE"/>
+        </property>
+        <property name="CANCEL_DATE" type="date">
+            <column name="CANCEL_DATE"/>
+        </property>
+        <property name="CREATETS" type="timestamp">
+            <column name="CREATETS"/>
+        </property>
+        <property name="MODIFYBYID" type="integer">
+            <column name="MODIFYBYID"/>
+        </property>
+        <property name="MODIFYTS" type="timestamp">
+            <column name="MODIFYTS"/>
+        </property>
+        <property name="CREATEBYID" type="integer">
+            <column name="CREATEBYID"/>
+        </property>
+        <set name="lms_its_reqs" inverse="true">
+            <key>
+                <column name="REQUESTER_UNIT_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_ITS_REQ"/>
+        </set>
+        <many-to-one name="REL_UNITTYPE" class="com.LMS.data.R_UNITTYPE" cascade="none">
+            <column name="UNIT_TYPE"/>
+        </many-to-one>
+        <many-to-one name="REL_UNIT_STATUS" class="com.LMS.data.R_UNIT_STATUS" cascade="none">
+            <column name="STATUS"/>
+        </many-to-one>
+        <many-to-one name="REL_UNIT_REGION" class="com.LMS.data.R_UNIT_REGION" cascade="none">
+            <column name="UNIT_REGION"/>
+        </many-to-one>
+        <many-to-one name="REL_UNIT_REFDOC" class="com.LMS.data.R_UNIT_REFDOC" cascade="none">
+            <column name="UNIT_REFDOC"/>
+        </many-to-one>
+        <many-to-one name="REL_UNIT_PARENT" class="com.LMS.data.R_UNIT" cascade="none">
+            <column name="UNIT_PARENT"/>
+        </many-to-one>
+        <set name="r_units" inverse="true">
+            <key>
+                <column name="UNIT_PARENT"/>
+            </key>
+            <one-to-many class="com.LMS.data.R_UNIT"/>
+        </set>
+        <set name="position_chairs" inverse="true">
+            <key>
+                <column name="UNIT_ID"/>
+            </key>
+            <one-to-many class="com.LMS.data.POSITION_CHAIR"/>
+        </set>
+        <set name="pim_02_employees" inverse="true">
+            <key>
+                <column name="WORKING_UNIT"/>
+            </key>
+            <one-to-many class="com.LMS.data.PIM_02_EMPLOYEE"/>
+        </set>
+    </class>
+</hibernate-mapping>

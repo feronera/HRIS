@@ -1,0 +1,24 @@
+{
+	"methods": [{
+		"name": "getDocById",
+		"operationType": "hqlquery",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.LMS.data.LMS_BASIC_DOC]"
+	}, {
+		"name": "q_Chair_GOV",
+		"operationType": "other",
+		"parameters": [{
+			"name": "id",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "uid",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "com.LMS.data.output.Q_Chair_GOVRtnType"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "LMS.json"
+}

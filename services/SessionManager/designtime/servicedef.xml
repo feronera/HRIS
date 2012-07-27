@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="SessionManager.spring.xml" type="JavaService" CRUDService="false" class="SessionManager" id="SessionManager">
+    <operation name="setAttribute">
+        <parameter isList="false" typeRef="java.lang.String" name="theName"/>
+        <parameter isList="false" typeRef="java.lang.String" name="theValue"/>
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <operation name="getAttribute">
+        <parameter isList="false" typeRef="java.lang.String" name="theName"/>
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <operation name="invalidateSesssion"/>
+    <operation name="getId">
+        <return isList="false" typeRef="java.lang.String"/>
+    </operation>
+    <dataobjects/>
+</service>

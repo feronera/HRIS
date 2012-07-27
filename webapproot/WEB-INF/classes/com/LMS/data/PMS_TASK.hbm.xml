@@ -1,0 +1,75 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.PMS_TASK" table="PMS_TASK" dynamic-insert="false" dynamic-update="false">
+        <id name="TASKID" type="integer">
+            <column name="TASKID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="TASK_NAME" type="string">
+            <column name="TASK_NAME" length="60"/>
+        </property>
+        <property name="TASK_GOAL" type="string">
+            <column name="TASK_GOAL"/>
+        </property>
+        <property name="NOTE" type="string">
+            <column name="NOTE"/>
+        </property>
+        <property name="ISMILESTONE" type="boolean">
+            <column name="ISMILESTONE"/>
+        </property>
+        <property name="PROGRESS" type="integer">
+            <column name="PROGRESS"/>
+        </property>
+        <property name="COST_BASELINE" type="currency">
+            <column name="COST_BASELINE" precision="2"/>
+        </property>
+        <property name="COST_TOTAL" type="currency">
+            <column name="COST_TOTAL" precision="2"/>
+        </property>
+        <property name="STARTDATE" type="date">
+            <column name="STARTDATE"/>
+        </property>
+        <property name="FINISHDATE" type="date">
+            <column name="FINISHDATE"/>
+        </property>
+        <property name="DEADLINEDATE" type="date">
+            <column name="DEADLINEDATE"/>
+        </property>
+        <property name="CREATEBYID" type="integer">
+            <column name="CREATEBYID"/>
+        </property>
+        <property name="CREATETS" type="timestamp">
+            <column name="CREATETS"/>
+        </property>
+        <property name="MODIFYBYID" type="integer">
+            <column name="MODIFYBYID"/>
+        </property>
+        <property name="MODIFYTS" type="timestamp">
+            <column name="MODIFYTS"/>
+        </property>
+        <property name="ISACTIVE" type="integer">
+            <column name="ISACTIVE"/>
+        </property>
+        <many-to-one name="REL_PMS_TASK_STATUS" class="com.LMS.data.PMS_TASK_STATUS" cascade="none">
+            <column name="TASKSTATUS_ID"/>
+        </many-to-one>
+        <many-to-one name="REL_R_PRIORITY" class="com.LMS.data.PMS_R_PRIORITY" cascade="none">
+            <column name="PRIORITY_ID"/>
+        </many-to-one>
+        <set name="pms_project_member_tasks" inverse="true">
+            <key>
+                <column name="TASKID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_PROJECT_MEMBER_TASK"/>
+        </set>
+        <many-to-one name="REL_PROJECT_ID" class="com.LMS.data.PMS_PROJECT" cascade="none">
+            <column name="PROJECT_ID" not-null="true"/>
+        </many-to-one>
+        <set name="pms_task_attachments" inverse="true">
+            <key>
+                <column name="TASK_ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LMS.data.PMS_TASK_ATTACHMENT"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.LMS.data.LMS_BASIC_DOC_TYPE" table="LMS_BASIC_DOC_TYPE" dynamic-insert="false" dynamic-update="false">
+        <id name="DOCTYPEID" type="integer">
+            <column name="DOCTYPEID"/>
+            <generator class="identity"/>
+        </id>
+        <property name="DOCTYPE" type="string">
+            <column name="DOCTYPE" length="60" not-null="true"/>
+        </property>
+        <property name="DESC" type="string">
+            <column name="DESC"/>
+        </property>
+        <set name="lms_basic_docs" inverse="true">
+            <key>
+                <column name="DOCTYPEID"/>
+            </key>
+            <one-to-many class="com.LMS.data.LMS_BASIC_DOC"/>
+        </set>
+    </class>
+</hibernate-mapping>
