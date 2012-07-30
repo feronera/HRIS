@@ -38,14 +38,14 @@ Page_PIM_MT.widgets = {
 			tabLayer_PIM_Info: ["wm.TabLayers", {"transition":"fade"}, {}, {
 				layer_PIM_Main: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"รายการข้อมูล","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
 					panel1: ["wm.Panel", {"height":"34px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
-						selectSearchType: ["wm.SelectMenu", {"caption":"ประเภทการค้นหา","displayExpression":"${dataValue} + \" - \" + ${name}","displayField":"name","displayValue":""}, {}, {
+						selectMenuSearch: ["wm.SelectMenu", {"caption":"ประเภทการค้นหา","displayExpression":"${dataValue} + \" - \" + ${name}","displayField":"name","displayValue":""}, {}, {
 							binding: ["wm.Binding", {}, {}, {
 								wire: ["wm.Wire", {"expression":undefined,"source":"varSearchType","targetProperty":"dataSet"}, {}]
 							}]
 						}],
-						textUIDSearch: ["wm.Text", {"caption":"คำค้นหา:","captionSize":"60px","changeOnKey":true,"dataValue":undefined,"displayValue":"","resetButton":true,"width":"240px"}, {"onchange":"textUIDSearchChange"}],
-						buttonSearch: ["wm.Button", {"caption":"ค้นหา","imageIndex":48,"imageList":"app.silkIconList","margin":"4"}, {}],
-						buttonClear: ["wm.Button", {"caption":"ยกเลิก","imageIndex":4,"imageList":"app.silkIconList","margin":"4"}, {}]
+						textSearchKey: ["wm.Text", {"caption":"คำค้นหา:","captionSize":"60px","changeOnKey":true,"dataValue":undefined,"displayValue":"","resetButton":true,"width":"240px"}, {"onEnterKeyPress":"textSearchKeyEnterKeyPress","onchange":"textSearchKeyChange"}],
+						buttonSearch: ["wm.Button", {"caption":"ค้นหา","imageIndex":48,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"buttonSearchClick"}],
+						buttonClear: ["wm.Button", {"caption":"ยกเลิก","imageIndex":4,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"buttonClearClick"}]
 					}],
 					panel2: ["wm.Panel", {"autoScroll":true,"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 						dojoGridPIMList: ["wm.DojoGrid", {"columns":[{"show":true,"id":"uid","title":"รหัสระบบ (UID)","width":"10%","displayType":"Number","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"name","title":"ชื่อ","width":"25%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"surname","title":"นามสกุล","width":"25%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"personalType","title":"ประเภทบุคคล","width":"20%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"c4","title":"รหัสบุคลากร","width":"20%","displayType":"Number","noDelete":true,"align":"center","formatFunc":""}],"height":"100%","localizationStructure":{},"margin":"4"}, {}, {
@@ -62,9 +62,9 @@ Page_PIM_MT.widgets = {
 				}],
 				layer_PIM_Info: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"ข้อมูลส่วนบุคคล","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"layer_PIM_InfoShow"}, {
 					tabLayer_PIM_Info_Details: ["wm.TabLayers", {"transition":"fade"}, {}, {
-						layer_PIM01: ["wm.Layer", {"autoScroll":true,"border":"1","borderColor":"#999999","caption":"PIM01-ข้อมูลส่วนบุคคล","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"layer_PIM01Show"}, {
+						layer_PIM01: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"PIM01-ข้อมูลส่วนบุคคล","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {"onShow":"layer_PIM01Show"}, {
 							fancyPanel2: ["wm.FancyPanel", {"title":"[PIM01_INFO] ปรับแต่งข้อมูลส่วนบุคคล"}, {}, {
-								liveForm1: ["wm.LiveForm", {"confirmDelete":"กรุณายืนยันการลบข้อมูล","height":"100%","horizontalAlign":"left","readonly":true,"scrollY":true,"verticalAlign":"top"}, {}, {
+								liveForm1: ["wm.LiveForm", {"autoScroll":true,"confirmDelete":"กรุณายืนยันการลบข้อมูล","height":"100%","horizontalAlign":"left","readonly":true,"verticalAlign":"top"}, {}, {
 									binding: ["wm.Binding", {}, {}, {
 										wire: ["wm.Wire", {"expression":undefined,"source":"LVar_PIM01","targetProperty":"dataSet"}, {}]
 									}],
@@ -72,22 +72,22 @@ Page_PIM_MT.widgets = {
 										UIDEditor1: ["wm.Number", {"caption":"รหัสระบบ (UID)","captionSize":"130px","emptyValue":"zero","formField":"UID","height":"26px","readonly":true,"required":true,"width":"50%"}, {}],
 										REL_PERSONALTYPELookup1: ["wm.Lookup", {"caption":"ประเภทบุคคล","captionSize":"128px","displayExpression":"${PERSONTYPE_ID} + \" - \" + ${NAME}","displayField":"NAME","formField":"REL_PERSONALTYPE","readonly":true,"required":true,"width":"50%"}, {"onchange":"REL_PERSONALTYPELookup1Change"}]
 									}],
-									tabLayersPIM01_Details: ["wm.TabLayers", {"transition":"fade"}, {}, {
+									tabLayersPIM01_Details: ["wm.TabLayers", {"fitToContentHeight":true,"height":"260px","transition":"fade"}, {}, {
 										layer_PIM01_Basic: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"ข้อมูลพื้นฐาน","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
 											panel9: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"100%"}, {}, {
 												panel6: ["wm.Panel", {"height":"100%","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 													spacer4: ["wm.Spacer", {"height":"100%","width":"8px"}, {}],
 													panel7: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
 														REL_INITIALNAMELookup1: ["wm.Lookup", {"caption":"คำนำหน้าชื่อ","captionSize":"130px","displayExpression":"${INIT_ID} + \" - \" + ${NAME} + \" (\" + ${NAMEEN} + \")\"","displayField":"NAMEEN","formField":"REL_INITIALNAME","readonly":true,"width":"100%"}, {}],
-														NAMETHEditor1: ["wm.Text", {"caption":"ชื่อ (ภาษาไทย)","captionSize":"130px","dataValue":"กรรณนิภา","emptyValue":"emptyString","formField":"NAMETH","height":"26px","readonly":true,"width":"100%"}, {}],
-														NAMEENEditor1: ["wm.Text", {"caption":"ชื่อ (ภาษาอังกฤษ)","captionSize":"130px","dataValue":"KANNIPHA","emptyValue":"emptyString","formField":"NAMEEN","height":"26px","readonly":true,"width":"100%"}, {}],
+														NAMETHEditor1: ["wm.Text", {"caption":"ชื่อ (ภาษาไทย)","captionSize":"130px","dataValue":"","emptyValue":"emptyString","formField":"NAMETH","height":"26px","readonly":true,"width":"100%"}, {}],
+														NAMEENEditor1: ["wm.Text", {"caption":"ชื่อ (ภาษาอังกฤษ)","captionSize":"130px","dataValue":"","emptyValue":"emptyString","formField":"NAMEEN","height":"26px","readonly":true,"width":"100%"}, {}],
 														selectMenuSex: ["wm.SelectMenu", {"caption":"เพศ","captionSize":"130px","dataField":"dataValue","displayExpression":"${name} + \" (\" + ${dataValue} + \")\"","displayField":"dataValue","formField":"SEX","height":"26px","readonly":true,"required":true,"width":"100%"}, {}, {
 															binding: ["wm.Binding", {}, {}, {
 																wire: ["wm.Wire", {"expression":undefined,"source":"staticVarSex","targetProperty":"dataSet"}, {}]
 															}]
 														}],
-														BIRTHDATEEditor1: ["wm.DateTime", {"caption":"วันที่เกิด","captionSize":"130px","dataValue":733338000000,"dateMode":"Date","emptyValue":"emptyString","formField":"BIRTHDATE","height":"26px","readonly":true,"width":"100%"}, {}],
-														CITIZENIDEditor1: ["wm.Text", {"caption":"เลขบัตรประจำตัวประชาชน","captionSize":"130px","dataValue":"1234567891234","emptyValue":"emptyString","formField":"CITIZENID","height":"26px","readonly":true,"width":"100%"}, {}],
+														BIRTHDATEEditor1: ["wm.DateTime", {"caption":"วันที่เกิด","captionSize":"130px","dateMode":"Date","emptyValue":"emptyString","formField":"BIRTHDATE","height":"26px","readonly":true,"width":"100%"}, {}],
+														CITIZENIDEditor1: ["wm.Text", {"caption":"เลขบัตรประจำตัวประชาชน","captionSize":"130px","dataValue":"","emptyValue":"emptyString","formField":"CITIZENID","height":"26px","readonly":true,"width":"100%"}, {}],
 														REL_MARIAGESTATUSLookup1: ["wm.Lookup", {"caption":"สถานภาพสมรส","captionSize":"130px","displayExpression":"${MARIAGESTATUSID} + \" - \" + ${NAME}","displayField":"NAME","formField":"REL_MARIAGESTATUS","readonly":true,"width":"100%"}, {}],
 														REL_RACELookup1: ["wm.Lookup", {"caption":"เชื้อชาติ","captionSize":"130px","displayExpression":"${RACEID} + \" - \" + ${NAME}","displayField":"NAME","formField":"REL_RACE","readonly":true,"width":"100%"}, {}],
 														REL_RELIGIONLookup1: ["wm.Lookup", {"caption":"ศาสนา","captionSize":"130px","displayExpression":"${RELIGIONID} + \" - \" + ${NAME}","displayField":"NAME","formField":"REL_RELIGION","readonly":true,"width":"100%"}, {}]
@@ -95,8 +95,8 @@ Page_PIM_MT.widgets = {
 													spacer5: ["wm.Spacer", {"height":"100%","width":"8px"}, {}],
 													panel8: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
 														spacer2: ["wm.Spacer", {"height":"24px","width":"100%"}, {}],
-														SURNAMETHEditor1: ["wm.Text", {"caption":"นามสกุล (ภาษาไทย)","captionSize":"120px","dataValue":"เจริญ","emptyValue":"emptyString","formField":"SURNAMETH","height":"26px","readonly":true,"width":"100%"}, {}],
-														SURNAMEENEditor1: ["wm.Text", {"caption":"นามสกุล (ภาษาอังกฤษ)","captionSize":"120px","dataValue":"CHAROEN","emptyValue":"emptyString","formField":"SURNAMEEN","height":"26px","readonly":true,"width":"100%"}, {}],
+														SURNAMETHEditor1: ["wm.Text", {"caption":"นามสกุล (ภาษาไทย)","captionSize":"120px","dataValue":"","emptyValue":"emptyString","formField":"SURNAMETH","height":"26px","readonly":true,"width":"100%"}, {}],
+														SURNAMEENEditor1: ["wm.Text", {"caption":"นามสกุล (ภาษาอังกฤษ)","captionSize":"120px","dataValue":"","emptyValue":"emptyString","formField":"SURNAMEEN","height":"26px","readonly":true,"width":"100%"}, {}],
 														textAGE: ["wm.Text", {"caption":"อายุ","captionSize":"120px","dataValue":"","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}],
 														BIRTHADDRESSEditor1: ["wm.Text", {"caption":"สถานที่เกิด","captionSize":"120px","dataValue":"","emptyValue":"emptyString","formField":"BIRTHADDRESS","height":"52px","readonly":true,"singleLine":false,"width":"100%"}, {}],
 														REL_BLOODTYPELookup1: ["wm.Lookup", {"caption":"หมู่เลือด","captionSize":"120px","displayExpression":"${BLOODTYPEID} + \" - \" + ${NAME}","displayField":"NAME","formField":"REL_BLOODTYPE","readonly":true,"width":"100%"}, {}],
@@ -117,7 +117,7 @@ Page_PIM_MT.widgets = {
 										}]
 									}]
 								}],
-								liveForm1EditPanel: ["wm.EditPanel", {"height":"32px","isCustomized":true,"liveForm":"liveForm1","lock":false,"operationPanel":"operationPanel1","savePanel":"savePanel1"}, {}, {
+								liveForm1EditPanel: ["wm.EditPanel", {"height":"32px","isCustomized":true,"liveForm":"liveForm1","lock":false,"operationPanel":"operationPanel1","roles":["SCA"],"savePanel":"savePanel1"}, {}, {
 									savePanel1: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
 										saveButton1: ["wm.Button", {"caption":"บันทึก","imageIndex":15,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"liveForm1EditPanel.saveData"}, {
 											binding: ["wm.Binding", {}, {}, {
@@ -162,9 +162,9 @@ Page_PIM_MT.widgets = {
 											}],
 											panel11: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"70%"}, {}, {
 												UIDEditor2: ["wm.Number", {"caption":"รหัสระบบ (UID)","captionSize":"200px","disabled":true,"emptyValue":"zero","formField":"UID","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
-												PERSONALNOEditor1: ["wm.Text", {"caption":"เลขที่บุคลากร","captionSize":"200px","dataValue":"540123","emptyValue":"emptyString","formField":"PERSONALNO","height":"26px","readonly":true,"width":"100%"}, {}],
+												PERSONALNOEditor1: ["wm.Text", {"caption":"เลขที่บุคลากร","captionSize":"200px","dataValue":"","emptyValue":"emptyString","formField":"PERSONALNO","height":"26px","readonly":true,"width":"100%"}, {}],
 												REL_POSITION_CHAIRLookup1: ["wm.Lookup", {"caption":"เลขที่ตำแหน่ง","captionSize":"200px","displayExpression":"${POSITIONID}","displayField":"COMMENT","formField":"REL_POSITION_CHAIR","readonly":true,"width":"100%"}, {}],
-												ACTIVEDATEEditor1: ["wm.DateTime", {"caption":"วันที่เข้าส่วนราชการ","captionSize":"200px","dataValue":1341162000000,"dateMode":"Date","emptyValue":"emptyString","formField":"ACTIVEDATE","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
+												ACTIVEDATEEditor1: ["wm.DateTime", {"caption":"วันที่เข้าส่วนราชการ","captionSize":"200px","dateMode":"Date","emptyValue":"emptyString","formField":"ACTIVEDATE","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
 												TAXNOEditor1: ["wm.Text", {"caption":"เลขประจำตัวผู้เสียภาษีอากร","captionSize":"200px","dataValue":"","emptyValue":"emptyString","formField":"TAXNO","height":"26px","readonly":true,"width":"100%"}, {}],
 												EMPLOYDATEEditor1: ["wm.DateTime", {"caption":"วันที่เข้ารับราชการ","captionSize":"200px","dateMode":"Date","emptyValue":"emptyString","formField":"EMPLOYDATE","height":"26px","readonly":true,"width":"100%"}, {}],
 												POS_LEVEL_LAST_XXXEditor1: ["wm.Number", {"caption":"ระดับตำแหน่งเดิม","captionSize":"200px","emptyValue":"zero","formField":"POS_LEVEL_LAST_XXX","height":"26px","readonly":true,"width":"100%"}, {}],
@@ -176,7 +176,7 @@ Page_PIM_MT.widgets = {
 											}]
 										}]
 									}],
-									pim_02_employeeLiveForm1EditPanel: ["wm.EditPanel", {"height":"32px","isCustomized":true,"liveForm":"pim_02_employeeLiveForm1","operationPanel":"operationPanel2","savePanel":"savePanel2"}, {}, {
+									pim_02_employeeLiveForm1EditPanel: ["wm.EditPanel", {"height":"32px","isCustomized":true,"liveForm":"pim_02_employeeLiveForm1","operationPanel":"operationPanel2","roles":["SCA"],"savePanel":"savePanel2"}, {}, {
 										savePanel2: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
 											saveButton2: ["wm.Button", {"caption":"บันทึก","imageIndex":15,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"pim_02_employeeLiveForm1EditPanel.saveData"}, {
 												binding: ["wm.Binding", {}, {}, {

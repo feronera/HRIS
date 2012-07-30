@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  *  LMS.HR_LEAVE_REQ
- *  07/29/2555 15:37:25
+ *  07/30/2555 19:20:06
  * 
  */
 public class HR_LEAVE_REQ {

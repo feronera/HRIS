@@ -8,6 +8,14 @@
 		}],
 		"returnType": "[com.LMS.data.LMS_BASIC_DOC]"
 	}, {
+		"name": "q_BasicInfo1",
+		"operationType": "other",
+		"parameters": [{
+			"name": "posID",
+			"type": "java.lang.Integer"
+		}],
+		"returnType": "[com.LMS.data.output.Q_BasicInfo1RtnType]"
+	}, {
 		"name": "q_Chair_GOV",
 		"operationType": "other",
 		"parameters": [{
@@ -18,7 +26,19 @@
 	}, {
 		"name": "q_Chair_GOV2",
 		"operationType": "other",
-		"parameters": null,
+		"parameters": [{
+			"name": "uid",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "name",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "surname",
+			"type": "java.lang.Integer"
+		}, {
+			"name": "personalType",
+			"type": "java.lang.Integer"
+		}],
 		"returnType": "[com.LMS.data.output.Q_Chair_GOV2RtnType]"
 	}],
 	"serviceType": "JSON-RPC",

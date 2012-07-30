@@ -38,6 +38,9 @@
         <property name="MODIFYTS" type="timestamp">
             <column name="MODIFYTS"/>
         </property>
+        <property name="POS_GOV_WORK_ID" type="string">
+            <column name="POS_GOV_WORK_ID" length="10"/>
+        </property>
         <many-to-one name="REL_POS_WORK_STATUS" class="com.LMS.data.R_POSITION_WORK_STATUS" cascade="none">
             <column name="POS_WORK_STATUS"/>
         </many-to-one>

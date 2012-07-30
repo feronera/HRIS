@@ -9,7 +9,7 @@ import java.util.Set;
 
 /**
  *  LMS.POSITION_CHAIR
- *  07/29/2555 15:57:01
+ *  07/30/2555 19:20:06
  * 
  */
 public class POSITION_CHAIR {

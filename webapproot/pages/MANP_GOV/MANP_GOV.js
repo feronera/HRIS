@@ -56,7 +56,7 @@ dojo.declare("MANP_GOV", wm.Page, {
             var numRows = inSender.getCount();
             this.textSearchResultUnit.setDataValue("ผลการค้นหา : " + numRows + " รายการ");
             this.position_chairLiveVariable1.update();
-            
+
         } catch (e) {
             console.error('ERROR IN r_unitLiveVariable1Result: ' + e);
         }
@@ -183,7 +183,7 @@ dojo.declare("MANP_GOV", wm.Page, {
             var numRows = inSender.getCount();
             this.textSearchResultPosType.setDataValue("ผลการค้นหา : " + numRows + " รายการ");
             this.position_chairLiveVariable1.update();
-            
+
         } catch (e) {
             console.error('ERROR IN r_position_typeLiveVariable1Result: ' + e);
         }
@@ -272,7 +272,7 @@ dojo.declare("MANP_GOV", wm.Page, {
             var numRows = inSender.getCount();
             this.textSearchResultPosManage.setDataValue("ผลการค้นหา : " + numRows + " รายการ");
             this.position_chairLiveVariable1.update();
-            
+
         } catch (e) {
             console.error('ERROR IN r_position_managementLiveVariable1Result: ' + e);
         }
@@ -329,9 +329,12 @@ dojo.declare("MANP_GOV", wm.Page, {
                 searchField = "POSITION_WORK_ID";
                 break;
             case 1:
-                searchField = "NAME";
+                searchField = "POS_GOV_WORK_ID";
                 break;
             case 2:
+                searchField = "NAME";
+                break;
+            case 3:
                 searchField = "REL_POS_WORK_STATUS.STATUS_NAME";
                 break;
             default:
@@ -362,7 +365,7 @@ dojo.declare("MANP_GOV", wm.Page, {
             var numRows = inSender.getCount();
             this.textSearchResultPosWork.setDataValue("ผลการค้นหา : " + numRows + " รายการ");
             this.position_chairLiveVariable1.update();
-            
+
         } catch (e) {
             console.error('ERROR IN r_position_workLiveVariable1Result: ' + e);
         }
@@ -585,6 +588,107 @@ dojo.declare("MANP_GOV", wm.Page, {
 
         } catch (e) {
             console.error('ERROR IN position_chairLiveForm1BeginUpdate: ' + e);
+        }
+    },
+    //WI------------------------------------------------------------------------
+    textSearchWIEnterKeyPress: function(inSender) {
+        try {
+            this.buttonSearchWI.click();
+
+        } catch (e) {
+            console.error('ERROR IN textSearchWIEnterKeyPress: ' + e);
+        }
+    },
+    buttonSearchWIClick: function(inSender) {
+        try {
+            var selectIndex = this.selectMenuSearchWI.getSelectedIndex();
+            var searchValue = this.textSearchWI.getDataValue();
+            var searchField = "";
+            switch (selectIndex) {
+
+                //Search by ID.
+            case 0:
+                searchField = "CHAIR_ID";
+                break;
+            case 1:
+                searchField = "POSITIONID";
+                break;
+            case 2:
+                searchField = "REL_UNIT.UNIT_NAME";
+                break;
+            case 3:
+                searchField = "REL_POS_MANAGE.NAME";
+                break;
+            case 4:
+                searchField = "REL_POS_WORK.NAME";
+                break;
+            case 5:
+                searchField = "REL_POSITION_TYPE.NAME";
+                break;
+            case 6:
+                searchField = "REL_POS_LEVEL.NAME";
+                break;
+            case 7:
+                searchField = "REL_POSITIONSTATUS.NAME";
+                break;
+            default:
+                alert("พบข้อผิดพลาด: ไม่สามารถทำการค้นหาได้!");
+                break;
+            }
+
+            //Set filter
+            this.position_chair_govLiveVariable1.filter.clearData();
+            this.position_chair_govLiveVariable1.filter.setValue(searchField, searchValue);
+            this.position_chair_govLiveVariable1.update();
+
+        } catch (e) {
+            console.error('ERROR IN buttonSearchWIClick: ' + e);
+        }
+    },
+    buttonClearWIClick: function(inSender) {
+        try {
+            this.position_chair_govLiveVariable1.filter.clearData();
+            this.position_chair_govLiveVariable1.update();
+
+        } catch (e) {
+            console.error('ERROR IN buttonClearWIClick: ' + e);
+        }
+    },
+    position_chair_govLiveVariable1Result: function(inSender, inDeprecated) {
+        try {
+            var numRows = inSender.getCount();
+            this.textSearchResultWI.setDataValue("ผลการค้นหา : " + numRows + " รายการ");
+
+        } catch (e) {
+            console.error('ERROR IN position_chair_govLiveVariable1Result: ' + e);
+        }
+    },
+    layer_WI_INFOShow: function(inSender) {
+        try {
+
+        } catch (e) {
+            console.error('ERROR IN layer_WI_INFOShow: ' + e);
+        }
+    },
+    position_chair_govLiveForm1BeginInsert: function(inSender) {
+        try {
+            this.CREATEBYIDEditor8.setDataValue(app.svarSecurity.getValue("dataValue"));
+            this.CREATETSEditor8.setValue("dataValue", new Date().valueOf());
+            this.MODIFYBYIDEditor8.setDataValue(app.svarSecurity.getValue("dataValue"));
+            this.MODIFYTSEditor8.setValue("dataValue", new Date().valueOf());
+
+        } catch (e) {
+            console.error('ERROR IN position_chair_govLiveForm1BeginInsert: ' + e);
+        }
+    },
+    position_chair_govLiveForm1BeginUpdate: function(inSender) {
+        try {
+
+            this.MODIFYBYIDEditor8.setDataValue(app.svarSecurity.getValue("dataValue"));
+            this.MODIFYTSEditor8.setValue("dataValue", new Date().valueOf());
+
+        } catch (e) {
+            console.error('ERROR IN position_chair_govLiveForm1BeginUpdate: ' + e);
         }
     },
     _end: 0

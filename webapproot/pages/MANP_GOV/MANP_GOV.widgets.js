@@ -47,8 +47,8 @@ MANP_GOV.widgets = {
 	r_unit_statusLiveVariable1: ["wm.LiveVariable", {"liveSource":"app.r_unit_statusLiveView1"}, {"onCanUpdate":"r_unit_statusLiveVariable1CanUpdate","onResult":"r_unit_statusLiveVariable1Result"}],
 	loadingDialog16: ["wm.LoadingDialog", {}, {}, {
 		binding: ["wm.Binding", {}, {}, {
-			wire: ["wm.Wire", {"expression":undefined,"source":"r_unitLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}],
-			wire1: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}]
+			wire1: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire: ["wm.Wire", {"expression":undefined,"source":"LVar_PersonalType","targetProperty":"serviceVariableToTrack"}, {}]
 		}]
 	}],
 	r_unittypeLiveVariable1: ["wm.LiveVariable", {"liveSource":"app.r_unittypeLiveView1"}, {}],
@@ -105,6 +105,164 @@ MANP_GOV.widgets = {
 			wire: ["wm.Wire", {"expression":"1","targetProperty":"filter.PERSONTYPE_ID"}, {}]
 		}]
 	}],
+	sVar_BasicInfo: ["wm.ServiceVariable", {"autoUpdate":true,"operation":"q_BasicInfo1","service":"LMS","startUpdate":true}, {}, {
+		input: ["wm.ServiceInput", {"type":"q_BasicInfo1Inputs"}, {}, {
+			binding: ["wm.Binding", {}, {}, {
+				wire: ["wm.Wire", {"expression":undefined,"source":"position_chairDojoGrid.selectedItem.POSITIONID","targetProperty":"posID"}, {}]
+			}]
+		}]
+	}],
+	position_chair_govLiveVariable1: ["wm.LiveVariable", {"liveSource":"app.position_chairLiveView1"}, {"onResult":"position_chair_govLiveVariable1Result"}],
+	sVar_BasicInfo_WI: ["wm.ServiceVariable", {"autoUpdate":true,"operation":"q_BasicInfo1","service":"LMS","startUpdate":true}, {}, {
+		input: ["wm.ServiceInput", {"type":"q_BasicInfo1Inputs"}, {}, {
+			binding: ["wm.Binding", {}, {}, {
+				wire: ["wm.Wire", {"expression":undefined,"source":"position_wi_DojoGrid.selectedItem.POSITIONID","targetProperty":"posID"}, {}]
+			}]
+		}]
+	}],
+	LVar_WI: ["wm.LiveVariable", {"liveSource":"app.position_chair_govLiveView1"}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.chairID","targetProperty":"filter.CHAIR_ID"}, {}]
+		}]
+	}],
+	loadingDialog1: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_positionstatusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}],
+		loadingDialog1: ["wm.LoadingDialog", {}, {}, {
+			binding: ["wm.Binding", {}, {}, {
+				wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+				wire1: ["wm.Wire", {"expression":undefined,"source":"r_positionstatusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+			}]
+		}]
+	}],
+	loadingDialog2: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_unit_regionLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog3: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_unit_statusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog4: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_unittypeLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog5: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_unit_refdocLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog6: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_unitLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog7: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"LVar_Unit_MT","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog8: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_position_type_statusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog9: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_position_typeLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog10: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"LVar_PosType_MT","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog11: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_position_management_statusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog12: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_position_managementLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog13: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_position_work_statusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog14: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_position_workLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog15: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_level_statusLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog17: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_levelLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog18: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"r_levelLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog19: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"position_chairLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog20: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog21: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"position_chair_govLiveVariable1","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog22: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
+	loadingDialog23: ["wm.LoadingDialog", {}, {}, {
+		binding: ["wm.Binding", {}, {}, {
+			wire: ["wm.Wire", {"expression":undefined,"source":"layoutBox1","targetProperty":"widgetToCover"}, {}],
+			wire1: ["wm.Wire", {"expression":undefined,"source":"LVar_WI","targetProperty":"serviceVariableToTrack"}, {}]
+		}]
+	}],
 	layoutBox1: ["wm.Layout", {"_classes":{"domNode":["wm_BackgroundColor_White"]},"autoScroll":false,"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"100%"}, {}, {
 		fancyPanel1: ["wm.FancyPanel", {"title":"[MANP_GOV] 1. การจัดการข้อมูลข้าราชการ"}, {}, {
 			tabLayers1: ["wm.TabLayers", {"transition":"fade"}, {}, {
@@ -147,6 +305,28 @@ MANP_GOV.widgets = {
 													wire: ["wm.Wire", {"expression":undefined,"source":"LVar_PersonalType","targetProperty":"defaultInsert"}, {}]
 												}]
 											}],
+											panel27: ["wm.Panel", {"fitToContentHeight":true,"height":"52px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+												panel28: ["wm.Panel", {"fitToContentHeight":true,"height":"52px","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
+													textEmpID: ["wm.Text", {"caption":"รหัสบุคลากรผู้ครอง","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+														binding: ["wm.Binding", {}, {}, {
+															wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo.empID","targetProperty":"dataValue"}, {}]
+														}]
+													}],
+													textEmpName: ["wm.Text", {"caption":"ชื่อบุคลากรผู้ครอง","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+														binding: ["wm.Binding", {}, {}, {
+															wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo.name","targetProperty":"dataValue"}, {}]
+														}]
+													}]
+												}],
+												panel29: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
+													spacer18: ["wm.Spacer", {"height":"26px","width":"100%"}, {}],
+													textEmpSurname: ["wm.Text", {"caption":"นามสกุล","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+														binding: ["wm.Binding", {}, {}, {
+															wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo.surname","targetProperty":"dataValue"}, {}]
+														}]
+													}]
+												}]
+											}],
 											panel24: ["wm.Panel", {"fitToContentHeight":true,"height":"78px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
 												panel25: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
 													lookup11: ["wm.Lookup", {"caption":"ประเภทหน่วยงาน/ สังกัด","captionSize":"140px","displayExpression":"${UNIT_ID} + \" - \" + ${UNIT_NAME}","displayField":"UNIT_CODE","formField":"REL_UNIT","height":"26px","readonly":true,"width":"100%"}, {}],
@@ -181,7 +361,7 @@ MANP_GOV.widgets = {
 											}],
 											MINISTRY_COMMENTEditor1: ["wm.Text", {"caption":"หมายเหตุ (มติ อ.ก.พ.)","captionSize":"140px","dataValue":"","emptyValue":"emptyString","formField":"MINISTRY_COMMENT","height":"52px","readonly":true,"singleLine":false,"width":"100%"}, {}],
 											STATUS_MINISTRYEditor1: ["wm.Text", {"caption":"สถานะตำแหน่งจากมติ อ.ก.พ. กระทรวงฯ/ คปร","captionAlign":"left","captionSize":"140px","dataValue":"","emptyValue":"emptyString","formField":"STATUS_MINISTRY","readonly":true,"width":"100%"}, {}],
-											tabLayers2: ["wm.TabLayers", {"fitToContentHeight":true,"height":"138px","transition":"fade"}, {}, {
+											tabLayers2: ["wm.TabLayers", {"fitToContentHeight":true,"height":"43px","transition":"fade"}, {}, {
 												layer11: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"เอกสารอ้างอิง","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}],
 												layer12: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"ข้อมูลระบบ","horizontalAlign":"left","roles":["SCA"],"themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
 													CREATEBYIDEditor7: ["wm.Number", {"caption":"รหัสผู้กำหนด","captionSize":"140px","disabled":true,"emptyValue":"zero","formField":"CREATEBYID","height":"26px","readonly":true,"width":"100%"}, {}],
@@ -541,12 +721,12 @@ MANP_GOV.widgets = {
 									r_position_workLivePanel1: ["wm.LivePanel", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
 										r_position_workGridPanel: ["wm.FancyPanel", {"minHeight":"180","title":"[R_POS_WORK_LIST] รายการข้อมูลชื่อตำแหน่งในสายงาน"}, {}, {
 											panel15: ["wm.Panel", {"height":"36px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
-												selectMenuSearchPosWork: ["wm.SelectMenu", {"caption":"ประเภทการค้นหา","dataField":"dataValue","displayField":"dataValue","displayValue":"","options":"0 - รหัส,1 - ชื่อตำแหน่งในสายงาน,2 - สถานะ","placeHolder":"กรุณาเลือกประเภทการค้นหา"}, {}],
+												selectMenuSearchPosWork: ["wm.SelectMenu", {"caption":"ประเภทการค้นหา","dataField":"dataValue","displayField":"dataValue","displayValue":"","options":"0 - รหัส,1 - รหัส กพ.,2 - ชื่อตำแหน่งในสายงาน,3 - สถานะ","placeHolder":"กรุณาเลือกประเภทการค้นหา"}, {}],
 												textSearchPosWork: ["wm.Text", {"caption":"คำค้นหา","captionSize":"80px","dataValue":undefined,"displayValue":"","placeHolder":"กรุณากรอกคำค้น"}, {"onEnterKeyPress":"textSearchPosWorkEnterKeyPress"}],
 												buttonSearchPosWork: ["wm.Button", {"caption":"ค้นหา","imageIndex":48,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"buttonSearchPosWorkClick"}],
 												buttonClearPosWork: ["wm.Button", {"caption":"ล้างค่า","imageIndex":21,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"buttonClearPosWorkClick"}]
 											}],
-											r_position_workDojoGrid: ["wm.DojoGrid", {"_classes":{"domNode":["omgDataGrid"]},"border":"0","columns":[{"show":true,"id":"POSITION_WORK_ID","title":"รหัสชื่อตำแหน่งในสายงาน","width":"30%","displayType":"Number","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"NAME","title":"ชื่อตำแหน่งในสายงาน","width":"50%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":false,"id":"ORDERDOCREF","title":"ORDERDOCREF","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"ORDERNO","title":"ORDERNO","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"ORDERDATE","title":"ORDERDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"EFFECTIVEDATE","title":"EFFECTIVEDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"CANCELDATE","title":"CANCELDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MEMO","title":"MEMO","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"CREATEBYID","title":"CREATEBYID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"CREATETS","title":"CREATETS","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MODIFYBYID","title":"MODIFYBYID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MODIFYTS","title":"MODIFYTS","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"REL_POS_WORK_STATUS.POSITION_WORK_STAT_ID","title":"REL_POS_WORK_STATUS.POSITION_WORK_STAT_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":true,"id":"REL_POS_WORK_STATUS.STATUS_NAME","title":"สถานะ","width":"20%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""}],"height":"100%","margin":"4"}, {}, {
+											r_position_workDojoGrid: ["wm.DojoGrid", {"_classes":{"domNode":["omgDataGrid"]},"border":"0","columns":[{"show":true,"id":"POS_GOV_WORK_ID","title":"รหัส กพ.","width":"20%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"POSITION_WORK_ID","title":"รหัสชื่อตำแหน่งในสายงาน","width":"15%","displayType":"Number","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"NAME","title":"ชื่อตำแหน่งในสายงาน","width":"45%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":false,"id":"ORDERDOCREF","title":"ORDERDOCREF","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"ORDERNO","title":"ORDERNO","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"ORDERDATE","title":"ORDERDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"EFFECTIVEDATE","title":"EFFECTIVEDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"CANCELDATE","title":"CANCELDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MEMO","title":"MEMO","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"CREATEBYID","title":"CREATEBYID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"CREATETS","title":"CREATETS","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MODIFYBYID","title":"MODIFYBYID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MODIFYTS","title":"MODIFYTS","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"REL_POS_WORK_STATUS.POSITION_WORK_STAT_ID","title":"REL_POS_WORK_STATUS.POSITION_WORK_STAT_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":true,"id":"REL_POS_WORK_STATUS.STATUS_NAME","title":"สถานะ","width":"20%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""}],"height":"100%","margin":"4"}, {}, {
 												binding: ["wm.Binding", {}, {}, {
 													wire: ["wm.Wire", {"expression":undefined,"source":"r_position_workLiveVariable1","targetProperty":"dataSet"}, {}]
 												}]
@@ -561,28 +741,29 @@ MANP_GOV.widgets = {
 								}],
 								layer_R_PosWork_Info: ["wm.Layer", {"borderColor":"","caption":"layer7","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
 									r_position_workDetailsPanel: ["wm.FancyPanel", {"freeze":false,"title":"[R_POS_WORK_INFO] รายละเอียดข้อมูลชื่อตำแหน่งในสายงาน"}, {}, {
-										r_position_workLiveForm1: ["wm.LiveForm", {"captionSize":"120px","confirmDelete":"กรุณายืนยันการลบข้อมูล","fitToContentHeight":true,"height":"320px","horizontalAlign":"left","margin":"0,40,0,40","readonly":true,"verticalAlign":"top"}, {"onBeginInsert":"r_position_workLiveForm1BeginInsert","onBeginUpdate":"r_position_workLiveForm1BeginUpdate","onSuccess":"r_position_workLiveVariable1"}, {
+										r_position_workLiveForm1: ["wm.LiveForm", {"autoScroll":true,"captionSize":"130px","confirmDelete":"กรุณายืนยันการลบข้อมูล","height":"100%","horizontalAlign":"left","margin":"0,40,0,40","readonly":true,"verticalAlign":"top"}, {"onBeginInsert":"r_position_workLiveForm1BeginInsert","onBeginUpdate":"r_position_workLiveForm1BeginUpdate","onSuccess":"r_position_workLiveVariable1"}, {
 											binding: ["wm.Binding", {}, {}, {
 												wire: ["wm.Wire", {"expression":undefined,"source":"r_position_workDojoGrid.selectedItem","targetProperty":"dataSet"}, {}]
 											}],
-											POSITION_WORK_IDEditor1: ["wm.Number", {"caption":"รหัสชื่อตำแหน่งในสายงาน","captionSize":"120px","emptyValue":"zero","formField":"POSITION_WORK_ID","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
-											NAMEEditor7: ["wm.Text", {"caption":"ชื่อตำแหน่งในสายงาน","captionSize":"120px","dataValue":"","emptyValue":"emptyString","formField":"NAME","height":"26px","readonly":true,"width":"100%"}, {}],
-											lookup6: ["wm.Lookup", {"caption":"สถานะ","captionSize":"120px","displayExpression":"${POSITION_WORK_STAT_ID} + \" - \" + ${STATUS_NAME}","displayField":"STATUS_NAME","formField":"REL_POS_WORK_STATUS","height":"26px","readonly":true,"width":"100%"}, {}],
+											POSITION_WORK_IDEditor1: ["wm.Number", {"caption":"รหัสชื่อตำแหน่งในสายงาน","captionSize":"130px","emptyValue":"zero","formField":"POSITION_WORK_ID","height":"26px","readonly":true,"required":true,"width":"100%"}, {}],
+											text1: ["wm.Text", {"caption":"รหัส กพ.","captionSize":"130px","dataValue":undefined,"emptyValue":"emptyString","formField":"POS_GOV_WORK_ID","height":"26px","readonly":true,"width":"100%"}, {}],
+											NAMEEditor7: ["wm.Text", {"caption":"ชื่อตำแหน่งในสายงาน","captionSize":"130px","dataValue":"","emptyValue":"emptyString","formField":"NAME","height":"26px","readonly":true,"width":"100%"}, {}],
+											lookup6: ["wm.Lookup", {"caption":"สถานะ","captionSize":"130px","displayExpression":"${POSITION_WORK_STAT_ID} + \" - \" + ${STATUS_NAME}","displayField":"STATUS_NAME","formField":"REL_POS_WORK_STATUS","height":"26px","readonly":true,"width":"100%"}, {}],
 											panel16: ["wm.Panel", {"height":"26px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
-												ORDERDOCREFEditor2: ["wm.Text", {"caption":"อ้างอิงจาก","captionSize":"120px","dataValue":"","emptyValue":"emptyString","formField":"ORDERDOCREF","height":"26px","readonly":true,"width":"50%"}, {}],
+												ORDERDOCREFEditor2: ["wm.Text", {"caption":"อ้างอิงจาก","captionSize":"130px","dataValue":"","emptyValue":"emptyString","formField":"ORDERDOCREF","height":"26px","readonly":true,"width":"50%"}, {}],
 												ORDERNOEditor3: ["wm.Text", {"caption":"เลขที่","captionSize":"50px","dataValue":"","emptyValue":"emptyString","formField":"ORDERNO","height":"26px","readonly":true,"width":"25%"}, {}],
-												ORDERDATEEditor3: ["wm.DateTime", {"caption":"วันที่","captionSize":"50px","dateMode":"Date","emptyValue":"emptyString","formField":"ORDERDATE","height":"26px","readonly":true,"width":"25%"}, {}]
+												ORDERDATEEditor3: ["wm.DateTime", {"caption":"วันที่","captionSize":"40px","dateMode":"Date","emptyValue":"emptyString","formField":"ORDERDATE","height":"26px","readonly":true,"width":"25%"}, {}]
 											}],
-											EFFECTIVEDATEEditor3: ["wm.DateTime", {"caption":"วันที่มีผลบังคับใช้","captionSize":"120px","dateMode":"Date","emptyValue":"emptyString","formField":"EFFECTIVEDATE","height":"26px","readonly":true,"width":"100%"}, {}],
-											CANCELDATEEditor3: ["wm.DateTime", {"caption":"วันที่ยกเลิก","captionSize":"120px","dateMode":"Date","emptyValue":"emptyString","formField":"CANCELDATE","height":"26px","readonly":true,"width":"100%"}, {}],
-											MEMOEditor3: ["wm.Text", {"caption":"หมายเหตุ","captionSize":"120px","dataValue":"","emptyValue":"emptyString","formField":"MEMO","height":"26px","readonly":true,"width":"100%"}, {}],
+											EFFECTIVEDATEEditor3: ["wm.DateTime", {"caption":"วันที่มีผลบังคับใช้","captionSize":"130px","dateMode":"Date","emptyValue":"emptyString","formField":"EFFECTIVEDATE","height":"26px","readonly":true,"width":"100%"}, {}],
+											CANCELDATEEditor3: ["wm.DateTime", {"caption":"วันที่ยกเลิก","captionSize":"130px","dateMode":"Date","emptyValue":"emptyString","formField":"CANCELDATE","height":"26px","readonly":true,"width":"100%"}, {}],
+											MEMOEditor3: ["wm.Text", {"caption":"หมายเหตุ","captionSize":"130px","dataValue":"","emptyValue":"emptyString","formField":"MEMO","height":"26px","readonly":true,"width":"100%"}, {}],
 											tabLayers12: ["wm.TabLayers", {"fitToContentHeight":true,"height":"138px","transition":"fade"}, {}, {
 												layer7: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"เอกสารอ้างอิง","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}],
 												layer8: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"ข้อมูลระบบ","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
-													CREATEBYIDEditor5: ["wm.Number", {"caption":"รหัสผู้กำหนด","captionSize":"120px","disabled":true,"emptyValue":"zero","formField":"CREATEBYID","height":"26px","readonly":true,"width":"100%"}, {}],
-													CREATETSEditor5: ["wm.DateTime", {"caption":"กำหนดเมื่อ","captionSize":"120px","disabled":true,"emptyValue":"emptyString","formField":"CREATETS","height":"26px","readonly":true,"width":"100%"}, {}],
-													MODIFYBYIDEditor5: ["wm.Number", {"caption":"รหัสผู้ปรับปรุงล่าสุด","captionSize":"120px","disabled":true,"emptyValue":"zero","formField":"MODIFYBYID","height":"26px","readonly":true,"width":"100%"}, {}],
-													MODIFYTSEditor5: ["wm.DateTime", {"caption":"ปรับปรงล่าสุดเมื่อ","captionSize":"120px","disabled":true,"emptyValue":"emptyString","formField":"MODIFYTS","height":"26px","readonly":true,"width":"100%"}, {}]
+													CREATEBYIDEditor5: ["wm.Number", {"caption":"รหัสผู้กำหนด","captionSize":"130px","disabled":true,"emptyValue":"zero","formField":"CREATEBYID","height":"26px","readonly":true,"width":"100%"}, {}],
+													CREATETSEditor5: ["wm.DateTime", {"caption":"กำหนดเมื่อ","captionSize":"130px","disabled":true,"emptyValue":"emptyString","formField":"CREATETS","height":"26px","readonly":true,"width":"100%"}, {}],
+													MODIFYBYIDEditor5: ["wm.Number", {"caption":"รหัสผู้ปรับปรุงล่าสุด","captionSize":"130px","disabled":true,"emptyValue":"zero","formField":"MODIFYBYID","height":"26px","readonly":true,"width":"100%"}, {}],
+													MODIFYTSEditor5: ["wm.DateTime", {"caption":"ปรับปรงล่าสุดเมื่อ","captionSize":"130px","disabled":true,"emptyValue":"emptyString","formField":"MODIFYTS","height":"26px","readonly":true,"width":"100%"}, {}]
 												}]
 											}]
 										}],
@@ -1077,7 +1258,151 @@ MANP_GOV.widgets = {
 						}]
 					}]
 				}],
-				layer_JobDesc: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"1.7 คำบรรยายลักษณะงาน","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}]
+				layer_WI: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"1.7 คำบรรยายลักษณะงาน","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
+					tabLayers17: ["wm.TabLayers", {}, {}, {
+						layer_Pos_Gov_WI: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"1.7.1 จัดการข้อมูลคำบรรยายลักษณะงาน","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
+							position_chair_govLivePanel1: ["wm.LivePanel", {"horizontalAlign":"left","verticalAlign":"top"}, {}, {
+								layers_GOV_WI: ["wm.Layers", {"transition":"fade"}, {}, {
+									layer_WI_LIST: ["wm.Layer", {"borderColor":"","caption":"layer13","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {}, {
+										position_chairGridPanel1: ["wm.FancyPanel", {"minHeight":"180","title":"[CHAIR_WI_LIST]  รายการข้อมูลคำบรรยายลักษณะงาน"}, {}, {
+											panel30: ["wm.Panel", {"height":"36px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
+												selectMenuSearchWI: ["wm.SelectMenu", {"caption":"ประเภทการค้นหา","dataField":"dataValue","displayField":"dataValue","displayValue":"","options":"0 - Chair ID.,1 - เลขที่ตำแหน่ง,2 - ชื่อหน่วยงาน,3 - ตำแหน่งในการบริหาร,,4 - ตำแหน่งในสายงาน,5 - ประเภทตำแหน่ง,6 - ระดับตำแหน่ง,7 - สถานะ","placeHolder":"กรุณาเลือกประเภทการค้นหา"}, {}],
+												textSearchWI: ["wm.Text", {"caption":"คำค้นหา","captionSize":"80px","dataValue":undefined,"displayValue":"","placeHolder":"กรุณากรอกคำค้น"}, {"onEnterKeyPress":"textSearchWIEnterKeyPress"}],
+												buttonSearchWI: ["wm.Button", {"caption":"ค้นหา","imageIndex":48,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"buttonSearchWIClick"}],
+												buttonClearWI: ["wm.Button", {"caption":"ล้างค่า","imageIndex":21,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"buttonClearWIClick"}]
+											}],
+											position_wi_DojoGrid: ["wm.DojoGrid", {"_classes":{"domNode":["omgDataGrid"]},"border":"0","columns":[{"show":false,"id":"CHAIR_ID","title":"CHAIR_ID","width":"5%","displayType":"Number","noDelete":true,"align":"center","formatFunc":""},{"show":false,"id":"STEP_SALARY","title":"STEP_SALARY","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"POSITION_SALARY","title":"POSITION_SALARY","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"EFFECTIVEDATE","title":"EFFECTIVEDATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"SALARY_TYPE","title":"SALARY_TYPE","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"COMMENT","title":"COMMENT","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"SALARY","title":"SALARY","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MINISTRY_CMD_NUMBER","title":"MINISTRY_CMD_NUMBER","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MINISTRY_CMD_YEAR","title":"MINISTRY_CMD_YEAR","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MINISTRY_CMD_DATE","title":"MINISTRY_CMD_DATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MINISTRY_BOOK_NUMBER","title":"MINISTRY_BOOK_NUMBER","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MINISTRY_BOOK_DATE","title":"MINISTRY_BOOK_DATE","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MINISTRY_COMMENT","title":"MINISTRY_COMMENT","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"STATUS_MINISTRY","title":"STATUS_MINISTRY","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"CREATEBYID","title":"CREATEBYID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"CREATETS","title":"CREATETS","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":false,"id":"MODIFYBYID","title":"MODIFYBYID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"MODIFYTS","title":"MODIFYTS","width":"80px","displayType":"Date","noDelete":true,"align":"left","formatFunc":"wm_date_formatter"},{"show":true,"id":"POSITIONID","title":"เลขที่ตำแหน่ง","width":"10%","displayType":"Number","noDelete":true,"align":"center","formatFunc":""},{"show":false,"id":"REL_POSITION_TYPE.POSITION_TYPE_ID","title":"REL_POSITION_TYPE.POSITION_TYPE_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":true,"id":"REL_UNIT.UNIT_NAME","title":"ชื่อหน่วยงาน","width":"20%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"REL_POS_MANAGE.NAME","title":"ตำแหน่งในการบริหาร","width":"20%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"REL_POS_WORK.NAME","title":"ตำแหน่งในสายงาน","width":"15%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":true,"id":"REL_POSITION_TYPE.NAME","title":"ประเภทตำแหน่ง","width":"15%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":false,"id":"REL_UNIT.UNIT_ID","title":"REL_UNIT.UNIT_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"REL_UNIT.UNIT_CODE","title":"REL_UNIT.UNIT_CODE","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":true,"id":"REL_POS_LEVEL.NAME","title":"ระดับตำแหน่ง","width":"10%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""},{"show":false,"id":"REL_POS_MANAGE.POSITION_MANAGEMENT_ID","title":"REL_POS_MANAGE.POSITION_MANAGEMENT_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"REL_POS_WORK.POSITION_WORK_ID","title":"REL_POS_WORK.POSITION_WORK_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"REL_POS_LEVEL.LEVEL_ID","title":"REL_POS_LEVEL.LEVEL_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"REL_POSONAL_TYPE.PERSONTYPE_ID","title":"REL_POSONAL_TYPE.PERSONTYPE_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":false,"id":"REL_POSONAL_TYPE.NAME","title":"REL_POSONAL_TYPE.NAME","width":"100%","displayType":"Text","noDelete":true,"align":"left","formatFunc":""},{"show":false,"id":"REL_POSITIONSTATUS.POSITIONSTATUS_ID","title":"REL_POSITIONSTATUS.POSITIONSTATUS_ID","width":"80px","displayType":"Number","noDelete":true,"align":"right","formatFunc":""},{"show":true,"id":"REL_POSITIONSTATUS.NAME","title":"สถานะ","width":"10%","displayType":"Text","noDelete":true,"align":"center","formatFunc":""}],"height":"100%","localizationStructure":{},"margin":"4"}, {}, {
+												binding: ["wm.Binding", {}, {}, {
+													wire: ["wm.Wire", {"expression":undefined,"source":"position_chair_govLiveVariable1","targetProperty":"dataSet"}, {}]
+												}]
+											}],
+											Layer_UNIT_Info6: ["wm.Panel", {"height":"34px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"middle","width":"100%"}, {}, {
+												textSearchResultWI: ["wm.Text", {"captionSize":"0px","dataValue":undefined,"disabled":true,"displayValue":"","readonly":true,"width":"200px"}, {}],
+												spacer19: ["wm.Spacer", {"height":"100%","width":"96%"}, {}],
+												buttonPreviewWI: ["wm.Button", {"caption":"เลือก","imageIndex":17,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"layer_WI_INFO"}]
+											}]
+										}]
+									}],
+									layer_WI_INFO: ["wm.Layer", {"borderColor":"","caption":"[CHAIR_WI_INFO] ","horizontalAlign":"left","themeStyleType":"","verticalAlign":"top"}, {"onShow":"layer_WI_INFOShow"}, {
+										position_chair_govDetailsPanel: ["wm.FancyPanel", {"title":"[CHAIR_WI_INFO] ปรับแต่งข้อมูลคำบรรยายลักษณะงาน"}, {}, {
+											position_chair_govLiveForm1: ["wm.LiveForm", {"autoScroll":true,"captionSize":"140px","confirmDelete":"กรุณายืนยันการลบข้อมูล","height":"100%","horizontalAlign":"left","margin":"0,40,0,40","readonly":true,"verticalAlign":"top"}, {"onSuccess":"position_chair_govLiveVariable2","onBeginInsert":"position_chair_govLiveForm1BeginInsert","onBeginUpdate":"position_chair_govLiveForm1BeginUpdate"}, {
+												binding: ["wm.Binding", {}, {}, {
+													wire: ["wm.Wire", {"expression":undefined,"source":"LVar_WI","targetProperty":"dataSet"}, {}],
+													wire1: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.chairID","targetProperty":"dataOutput.CHAIR_ID"}, {}]
+												}],
+												CHAIR_IDEditor2: ["wm.Text", {"caption":"เลขที่ตำแหน่งในระบบ","captionSize":"140px","disabled":true,"emptyValue":"emptyString","formField":"CHAIR_ID","height":"26px","readonly":true,"required":true,"width":"100%"}, {}, {
+													binding: ["wm.Binding", {}, {}, {
+														wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.chairID","targetProperty":"defaultInsert"}, {}],
+														wire1: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.chairID","targetProperty":"dataValue"}, {}]
+													}]
+												}],
+												textPositionID: ["wm.Text", {"caption":"เลขที่ตำแหน่ง","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+													binding: ["wm.Binding", {}, {}, {
+														wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.posID","targetProperty":"dataValue"}, {}]
+													}]
+												}],
+												lookup22: ["wm.Lookup", {"caption":"ประเภทบุคลากร","captionSize":"140px","disabled":true,"displayField":"NAME","displayValue":"","height":"26px","readonly":true,"width":"100%"}, {}, {
+													binding: ["wm.Binding", {}, {}, {
+														wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.personalType","targetProperty":"dataValue"}, {}]
+													}]
+												}],
+												panel31: ["wm.Panel", {"fitToContentHeight":true,"height":"52px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+													panel32: ["wm.Panel", {"fitToContentHeight":true,"height":"52px","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
+														textEmpID1: ["wm.Text", {"caption":"รหัสบุคลากรผู้ครอง","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.empID","targetProperty":"dataValue"}, {}]
+															}]
+														}],
+														textEmpName1: ["wm.Text", {"caption":"ชื่อบุคลากรผู้ครอง","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.name","targetProperty":"dataValue"}, {}]
+															}]
+														}]
+													}],
+													panel33: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
+														spacer21: ["wm.Spacer", {"height":"26px","width":"100%"}, {}],
+														textEmpSurname1: ["wm.Text", {"caption":"นามสกุล","captionSize":"140px","displayValue":"","emptyValue":"emptyString","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.surname","targetProperty":"dataValue"}, {}]
+															}]
+														}]
+													}]
+												}],
+												panel34: ["wm.Panel", {"fitToContentHeight":true,"height":"78px","horizontalAlign":"left","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+													panel35: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
+														lookup17: ["wm.Lookup", {"caption":"ประเภทหน่วยงาน/ สังกัด","captionSize":"140px","displayField":"UNIT_CODE","displayValue":"","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.unit","targetProperty":"dataValue"}, {}]
+															}]
+														}],
+														lookup18: ["wm.Lookup", {"caption":"ตำแหน่งในการบริหาร","captionSize":"140px","displayField":"MEMO","displayValue":"","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.posManage","targetProperty":"dataValue"}, {}]
+															}]
+														}],
+														lookup19: ["wm.Lookup", {"caption":"ประเภทตำแหน่ง","captionSize":"140px","displayField":"MEMO","displayValue":"","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.posType","targetProperty":"dataValue"}, {}]
+															}]
+														}]
+													}],
+													panel36: ["wm.Panel", {"height":"100%","horizontalAlign":"left","verticalAlign":"top","width":"50%"}, {}, {
+														spacer20: ["wm.Spacer", {"height":"26px","width":"100%"}, {}],
+														lookup20: ["wm.Lookup", {"caption":"ตำแหน่งในสายงาน","captionSize":"140px","displayField":"MEMO","displayValue":"","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.posWork","targetProperty":"dataValue"}, {}]
+															}]
+														}],
+														lookup21: ["wm.Lookup", {"caption":"ระดับตำแหน่ง","captionSize":"140px","displayField":"MEMO","displayValue":"","height":"26px","readonly":true,"width":"100%"}, {}, {
+															binding: ["wm.Binding", {}, {}, {
+																wire: ["wm.Wire", {"expression":undefined,"source":"sVar_BasicInfo_WI.posLevel","targetProperty":"dataValue"}, {}]
+															}]
+														}]
+													}]
+												}],
+												WIEditor1: ["wm.Text", {"caption":"คำบรรยายลักษณะงาน","captionSize":"140px","dataValue":"","emptyValue":"emptyString","formField":"WI","height":"100px","readonly":true,"singleLine":false,"width":"100%"}, {}],
+												tabLayers18: ["wm.TabLayers", {"fitToContentHeight":true,"height":"138px","transition":"fade"}, {}, {
+													layer13: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"ประวัติการปรับแต่ง","horizontalAlign":"left","themeStyleType":"ContentPanel","verticalAlign":"top"}, {}],
+													layer14: ["wm.Layer", {"border":"1","borderColor":"#999999","caption":"ข้อมูลระบบ","horizontalAlign":"left","roles":["SCA"],"themeStyleType":"ContentPanel","verticalAlign":"top"}, {}, {
+														CREATEBYIDEditor8: ["wm.Text", {"caption":"รหัสผู้กำหนด","captionSize":"140px","dataValue":undefined,"disabled":true,"emptyValue":"emptyString","formField":"CREATEBYID","height":"26px","readonly":true,"width":"100%"}, {}],
+														CREATETSEditor8: ["wm.DateTime", {"caption":"กำหนดเมื่อ","captionSize":"140px","disabled":true,"emptyValue":"emptyString","formField":"CREATETS","height":"26px","readonly":true,"width":"100%"}, {}],
+														MODIFYBYIDEditor8: ["wm.Text", {"caption":"รหัสผู้ปรับแต่งล่าสุด","captionSize":"140px","dataValue":undefined,"disabled":true,"emptyValue":"emptyString","formField":"MODIFYBYID","height":"26px","readonly":true,"width":"100%"}, {}],
+														MODIFYTSEditor8: ["wm.DateTime", {"caption":"ปรับแต่งล่าสุดเมื่อ","captionSize":"140px","disabled":true,"emptyValue":"emptyString","formField":"MODIFYTS","height":"26px","readonly":true,"width":"100%"}, {}]
+													}]
+												}]
+											}],
+											position_chair_govLiveForm1EditPanel: ["wm.EditPanel", {"height":"32px","isCustomized":true,"liveForm":"position_chair_govLiveForm1","operationPanel":"operationPanel14","savePanel":"savePanel14"}, {}, {
+												savePanel14: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","showing":false,"verticalAlign":"top","width":"100%"}, {}, {
+													saveButton14: ["wm.Button", {"caption":"บันทึก","imageIndex":15,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"position_chair_govLiveForm1EditPanel.saveData"}, {
+														binding: ["wm.Binding", {}, {}, {
+															wire: ["wm.Wire", {"expression":undefined,"source":"position_chair_govLiveForm1EditPanel.formInvalid","targetProperty":"disabled"}, {}]
+														}]
+													}],
+													cancelButton14: ["wm.Button", {"caption":"ยกเลิก","imageIndex":21,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"position_chair_govLiveForm1EditPanel.cancelEdit"}]
+												}],
+												operationPanel14: ["wm.Panel", {"height":"100%","horizontalAlign":"right","layoutKind":"left-to-right","verticalAlign":"top","width":"100%"}, {}, {
+													buttonChairWI: ["wm.Button", {"caption":"รายการ","imageIndex":19,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"layer_WI_LIST"}],
+													spacer22: ["wm.Spacer", {"height":"48px","width":"96%"}, {}],
+													newButton14: ["wm.Button", {"caption":"เพิ่ม","imageIndex":1,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"position_chair_govLiveForm1EditPanel.beginDataInsert"}],
+													updateButton14: ["wm.Button", {"caption":"ปรับแต่ง","imageIndex":4,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"position_chair_govLiveForm1EditPanel.beginDataUpdate"}, {
+														binding: ["wm.Binding", {}, {}, {
+															wire: ["wm.Wire", {"expression":undefined,"source":"position_chair_govLiveForm1EditPanel.formUneditable","targetProperty":"disabled"}, {}]
+														}]
+													}],
+													deleteButton14: ["wm.Button", {"caption":"ลบ","imageIndex":11,"imageList":"app.silkIconList","margin":"4"}, {"onclick":"position_chair_govLiveForm1EditPanel.deleteData"}, {
+														binding: ["wm.Binding", {}, {}, {
+															wire: ["wm.Wire", {"expression":undefined,"source":"position_chair_govLiveForm1EditPanel.formUneditable","targetProperty":"disabled"}, {}]
+														}]
+													}]
+												}]
+											}]
+										}]
+									}]
+								}]
+							}]
+						}]
+					}]
+				}]
 			}]
 		}]
 	}]

@@ -4,7 +4,7 @@ package com.LMS.data.output;
 
 
 /**
- * Generated for query "Q_Chair_GOV" on 07/30/2555 10:54:42
+ * Generated for query "Q_Chair_GOV" on 07/30/2555 21:01:55
  * 
  */
 public class Q_Chair_GOVRtnType {

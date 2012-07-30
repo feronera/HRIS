@@ -9,6 +9,57 @@ dojo.declare("Page_PIM_MT", wm.Page, {
         }
     },
     //PIM_LIST ------------------------------------------------------------------
+    buttonSearchClick: function(inSender) {
+        try {
+            var selectIndex = this.selectMenuSearch.dataValue;
+            var searchValue = this.textSearchKey.getDataValue();
+            var searchField = "";
+
+            switch (selectIndex.dataValue) {
+                //Search by ID.
+            case "0":
+                searchField = "uid";
+                break;
+            case "1":
+                searchField = "name";
+                break;
+            case "2":
+                searchField = "surname";
+                break;
+            case "3":
+                searchField = "personalType";
+                break;
+            default:
+                alert("พบข้อผิดพลาด: ไม่สามารถทำการค้นหาได้!");
+                break;
+            }
+
+            //Set filter
+            this.sVar_PIMLIST.input.setValue(searchField, searchValue);
+            this.sVar_PIMLIST.update();
+
+        } catch (e) {
+            console.error('ERROR IN buttonSearchClick: ' + e);
+        }
+    },
+    textSearchKeyEnterKeyPress: function(inSender) {
+        try {
+            this.buttonSearch.click();
+
+        } catch (e) {
+            console.error('ERROR IN textSearchKeyEnterKeyPress: ' + e);
+        }
+    },
+    buttonClearClick: function(inSender) {
+        try {
+            //Set filter
+            this.sVar_PIMLIST.input.setValue("uid", "");
+            this.sVar_PIMLIST.update();
+
+        } catch (e) {
+            console.error('ERROR IN buttonClearClick: ' + e);
+        }
+    },
     sVar_PIMLISTResult: function(inSender, inDeprecated) {
         try {
             var numRows = inSender.getCount();
@@ -30,14 +81,14 @@ dojo.declare("Page_PIM_MT", wm.Page, {
             console.error('ERROR IN layer_PIM_ListShow: ' + e);
         }
     },
-    textUIDSearchChange: function(inSender) {
+    textSearchKeyChange: function(inSender) {
         try {
             this.pim_01_generalLiveVariable1.filter.setValue("UID", this.textUIDSearch.getDataValue());
             this.pim_02_employeeLiveVariable1.filter.setValue("UID", this.textUIDSearch.getDataValue());
             this.pim_01_generalLiveVariable1.update();
             this.pim_02_employeeLiveVariable1.update();
         } catch (e) {
-            console.error('ERROR IN textUIDSearchChange: ' + e);
+            console.error('ERROR IN textSearchKeyChange: ' + e);
         }
     },
     layer_PIM_EmployeeShow: function(inSender) {

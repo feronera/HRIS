@@ -81,8 +81,9 @@
                         <value>com.LMS.data.R_UNIT_REFDOC</value>
                         <value>com.LMS.data.R_UNIT_REGION</value>
                         <value>com.LMS.data.R_UNIT_STATUS</value>
-                        <value>com.LMS.data.output.Q_Chair_GOV2RtnType</value>
+                        <value>com.LMS.data.output.Q_BasicInfo1RtnType</value>
                         <value>com.LMS.data.output.Q_Chair_GOVRtnType</value>
+                        <value>com.LMS.data.output.Q_Chair_GOV2RtnType</value>
                     </list>
                 </entry>
                 <entry key="SessionManager">

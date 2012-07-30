@@ -150,7 +150,7 @@ Main.widgets = {
 						}]
 					}]
 				}],
-				splitter2: ["wm.Splitter", {"bevelSize":"1","height":"1px","maximum":146,"width":"100%"}, {}],
+				splitter2: ["wm.Splitter", {"height":"1px","maximum":146,"width":"100%"}, {}],
 				panel2: ["wm.Panel", {"height":"30px","horizontalAlign":"left","layoutKind":"left-to-right","touchScrolling":true,"verticalAlign":"top","width":"100%"}, {}, {
 					dojoMenu1: ["wm.DojoMenu", {"_classes":{"domNode":["ClickableDojoMenu"]},"eventList":[],"fullStructure":[{"label":"MAIN MENU","defaultLabel":"MAIN MENU","iconClass":"app_silkIconList_10","imageList":"app.silkIconList","onClick":"app.navCall_MainMenu","children":[]},{"label":"PIM","defaultLabel":"PIM","iconClass":undefined,"imageList":undefined,"onClick":"navCall_PIM_Main","children":[]},{"label":"LMS","defaultLabel":"LMS","iconClass":undefined,"imageList":undefined,"onClick":"navCall_LMS_Main","children":[]},{"label":"MANP","defaultLabel":"MANP","iconClass":undefined,"imageList":undefined,"onClick":undefined,"children":[{"label":"โครงสร้างอัตรากำลัง","defaultLabel":"โครงสร้างอัตรากำลัง","iconClass":"app_silkIconList_10","imageList":"app.silkIconList","onClick":undefined,"children":[]},{"label":"จัดการข้อมูลข้าราชการ","defaultLabel":"จัดการข้อมูลข้าราชการ","iconClass":"app_silkIconList_52","imageList":"app.silkIconList","onClick":undefined,"children":[]}]},{"label":"PMS","defaultLabel":"PMS","iconClass":undefined,"imageList":undefined,"onClick":"navCall_PMS_Main","children":[]},{"label":"Administrative Tools","defaultLabel":"Administrative Tools","iconClass":undefined,"imageList":undefined,"onClick":undefined,"children":[]}],"height":"100%","localizationStructure":{},"transparent":false}, {}]
 				}],

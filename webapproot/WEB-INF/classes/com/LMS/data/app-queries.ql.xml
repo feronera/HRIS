@@ -28,6 +28,10 @@ WHERE   (pim01.UID = pim02.UID)
 AND (pim01.UID =:uid)
     </query>
     <query name="Q_Chair_GOV2">
+        <query-param name="uid" type="java.lang.Integer"/>
+        <query-param name="name" type="java.lang.Integer"/>
+        <query-param name="surname" type="java.lang.Integer"/>
+        <query-param name="personalType" type="java.lang.Integer"/>
         SELECT
 pim01.UID as uid,
 pim01.NAMETH as name,
@@ -39,9 +43,38 @@ pim02.PERSONALNO as empID
 FROM
 PIM_02_EMPLOYEE as pim02
 WHERE
-pim02.UID = pim01.UID
+pim01.UID = pim02.UID
 )
 FROM
 PIM_01_GENERAL as pim01
+WHERE (
+:uid IS NULL OR pim01.UID = :uid
+OR :name IS NULL OR pim01.NAMETH LIKE &apos;%&apos; || :name || &apos;%&apos;
+OR :surname IS NULL OR pim01.SURNAMETH LIKE &apos;%&apos; || :surname || &apos;%&apos;
+OR :personalType IS NULL OR pim01.REL_PERSONALTYPE.NAME LIKE &apos;%&apos; || :personalType || &apos;%&apos;
+)
+    </query>
+    <query name="Q_BasicInfo1" comment="Display uid, empID, name, surname, personalType and position chair information.">
+        <query-param name="posID" type="java.lang.Integer"/>
+        SELECT
+pim01.UID as uid,
+pim02.PERSONALNO as empID,
+pim01.NAMETH as name,
+pim01.SURNAMETH as surname,
+pim01.REL_PERSONALTYPE.NAME as personalType,
+pim02.REL_POSITION_CHAIR.CHAIR_ID as chairID,
+pim02.REL_POSITION_CHAIR.POSITIONID as posID,
+pim02.REL_POSITION_CHAIR.REL_UNIT.UNIT_NAME as unit,
+pim02.REL_POSITION_CHAIR.REL_POS_MANAGE.NAME as posManage,
+pim02.REL_POSITION_CHAIR.REL_POS_WORK.NAME as posWork,
+pim02.REL_POSITION_CHAIR.REL_POS_LEVEL.NAME as posLevel,
+pim02.REL_POSITION_CHAIR.REL_POSITION_TYPE.NAME as posType
+FROM
+PIM_01_GENERAL as pim01,
+PIM_02_EMPLOYEE as pim02
+WHERE   (
+pim01.UID = pim02.UID
+AND pim02.REL_POSITION_CHAIR.POSITIONID = :posID
+)
     </query>
 </hibernate-mapping>

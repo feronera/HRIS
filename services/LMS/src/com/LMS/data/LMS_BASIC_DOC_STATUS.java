@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  LMS.LMS_BASIC_DOC_STATUS
- *  07/29/2555 15:37:25
+ *  07/30/2555 19:20:05
  * 
  */
 public class LMS_BASIC_DOC_STATUS {

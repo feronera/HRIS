@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  *  LMS.LMS_PLAN_DOC
- *  07/29/2555 15:37:26
+ *  07/30/2555 19:20:05
  * 
  */
 public class LMS_PLAN_DOC {

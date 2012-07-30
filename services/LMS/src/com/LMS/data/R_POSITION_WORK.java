@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  *  LMS.R_POSITION_WORK
- *  07/29/2555 15:37:24
+ *  07/30/2555 19:20:06
  * 
  */
 public class R_POSITION_WORK {
@@ -25,6 +25,7 @@ public class R_POSITION_WORK {
     private Date CREATETS;
     private Integer MODIFYBYID;
     private Date MODIFYTS;
+    private String POS_GOV_WORK_ID;
     private R_POSITION_WORK_STATUS REL_POS_WORK_STATUS;
     private Set<com.LMS.data.POSITION_CHAIR> position_chairs = new HashSet<com.LMS.data.POSITION_CHAIR>();
 
@@ -122,6 +123,14 @@ public class R_POSITION_WORK {
 
     public void setMODIFYTS(Date MODIFYTS) {
         this.MODIFYTS = MODIFYTS;
+    }
+
+    public String getPOS_GOV_WORK_ID() {
+        return POS_GOV_WORK_ID;
+    }
+
+    public void setPOS_GOV_WORK_ID(String POS_GOV_WORK_ID) {
+        this.POS_GOV_WORK_ID = POS_GOV_WORK_ID;
     }
 
     public R_POSITION_WORK_STATUS getREL_POS_WORK_STATUS() {

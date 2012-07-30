@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="LMS.spring.xml" type="DataService" CRUDService="true" class="com.LMS.LMS" id="LMS">
+    <operation name="q_BasicInfo1" operationType="other">
+        <parameter isList="false" typeRef="java.lang.Integer" name="posID"/>
+        <return isList="true" typeRef="com.LMS.data.output.Q_BasicInfo1RtnType"/>
+    </operation>
     <operation name="q_Chair_GOV" operationType="other">
         <parameter isList="false" typeRef="java.lang.Integer" name="uid"/>
         <return isList="true" typeRef="com.LMS.data.output.Q_Chair_GOVRtnType"/>
@@ -9,6 +13,10 @@
         <return isList="true" typeRef="com.LMS.data.LMS_BASIC_DOC"/>
     </operation>
     <operation name="q_Chair_GOV2" operationType="other">
+        <parameter isList="false" typeRef="java.lang.Integer" name="uid"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="name"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="surname"/>
+        <parameter isList="false" typeRef="java.lang.Integer" name="personalType"/>
         <return isList="true" typeRef="com.LMS.data.output.Q_Chair_GOV2RtnType"/>
     </operation>
     <dataobjects>
@@ -692,6 +700,10 @@
                 <noChange>update</noChange>
             </element>
             <element allowNull="true" isList="false" typeRef="java.lang.String" name="WI"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="CREATEBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
+            <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
         </dataobject>
         <dataobject supportsQuickData="true" javaType="com.LMS.data.R_ATTACHMENT_GROUP">
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="ATTACHMENT_GROUP_ID">
@@ -1054,6 +1066,7 @@
             <element allowNull="true" isList="false" typeRef="java.util.Date" name="CREATETS"/>
             <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="MODIFYBYID"/>
             <element allowNull="true" isList="false" typeRef="java.util.Date" name="MODIFYTS"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="POS_GOV_WORK_ID"/>
             <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITION_WORK_STATUS" name="REL_POS_WORK_STATUS"/>
             <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
         </dataobject>
@@ -1193,12 +1206,19 @@
             <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
             <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
         </dataobject>
-        <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_Chair_GOV2RtnType">
+        <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_BasicInfo1RtnType">
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="uid"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="empID"/>
             <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
             <element allowNull="false" isList="false" typeRef="java.lang.String" name="surname"/>
             <element allowNull="false" isList="false" typeRef="java.lang.String" name="personalType"/>
-            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="c4"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="chairID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="posID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="unit"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posManage"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posWork"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posLevel"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posType"/>
         </dataobject>
         <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_Chair_GOVRtnType">
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="uid"/>
@@ -1213,6 +1233,13 @@
             <element allowNull="false" isList="false" typeRef="java.lang.String" name="posWork"/>
             <element allowNull="false" isList="false" typeRef="java.lang.String" name="posLevel"/>
             <element allowNull="false" isList="false" typeRef="java.lang.String" name="posType"/>
+        </dataobject>
+        <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_Chair_GOV2RtnType">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="uid"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="surname"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="personalType"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="c4"/>
         </dataobject>
     </dataobjects>
 </service>
