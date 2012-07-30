@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  *  LMS.R_UNIT
- *  07/26/2555 21:35:21
+ *  07/29/2555 15:37:25
  * 
  */
 public class R_UNIT {
@@ -34,7 +34,6 @@ public class R_UNIT {
     private Set<com.LMS.data.LMS_ITS_REQ> lms_its_reqs = new HashSet<com.LMS.data.LMS_ITS_REQ>();
     private Set<com.LMS.data.R_UNIT> r_units = new HashSet<com.LMS.data.R_UNIT>();
     private Set<com.LMS.data.POSITION_CHAIR> position_chairs = new HashSet<com.LMS.data.POSITION_CHAIR>();
-    private Set<com.LMS.data.PIM_02_EMPLOYEE> pim_02_employees = new HashSet<com.LMS.data.PIM_02_EMPLOYEE>();
 
     public Integer getUNIT_ID() {
         return UNIT_ID;
@@ -202,14 +201,6 @@ public class R_UNIT {
 
     public void setPosition_chairs(Set<com.LMS.data.POSITION_CHAIR> position_chairs) {
         this.position_chairs = position_chairs;
-    }
-
-    public Set<com.LMS.data.PIM_02_EMPLOYEE> getPim_02_employees() {
-        return pim_02_employees;
-    }
-
-    public void setPim_02_employees(Set<com.LMS.data.PIM_02_EMPLOYEE> pim_02_employees) {
-        this.pim_02_employees = pim_02_employees;
     }
 
 }

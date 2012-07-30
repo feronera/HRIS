@@ -5,14 +5,14 @@
             <column name="UID"/>
             <generator class="assigned"/>
         </id>
-        <property name="POSITIONID" type="integer">
-            <column name="POSITIONID"/>
+        <property name="PERSONALNO" type="integer">
+            <column name="PERSONALNO" not-null="true"/>
+        </property>
+        <property name="ACTIVEDATE" type="date">
+            <column name="ACTIVEDATE" not-null="true"/>
         </property>
         <property name="PICID" type="integer">
             <column name="PICID"/>
-        </property>
-        <property name="PERSONALNO" type="integer">
-            <column name="PERSONALNO" not-null="true"/>
         </property>
         <property name="TAXNO" type="string">
             <column name="TAXNO" length="13"/>
@@ -20,23 +20,20 @@
         <property name="EMPLOYDATE" type="date">
             <column name="EMPLOYDATE"/>
         </property>
-        <property name="ACTIVEDATE" type="date">
-            <column name="ACTIVEDATE" not-null="true"/>
-        </property>
         <property name="POS_LEVEL_LAST_XXX" type="integer">
             <column name="POS_LEVEL_LAST_XXX"/>
-        </property>
-        <property name="RETIREDYEAR" type="character">
-            <column name="RETIREDYEAR" length="8"/>
-        </property>
-        <property name="CONTACTADDRESS" type="string">
-            <column name="CONTACTADDRESS" length="1024"/>
         </property>
         <property name="POS_LEVEL_NEW_XXX" type="integer">
             <column name="POS_LEVEL_NEW_XXX"/>
         </property>
-        <property name="SALARY" type="integer">
-            <column name="SALARY" length="10" precision="2"/>
+        <property name="RETIREDYEAR" type="string">
+            <column name="RETIREDYEAR" length="200"/>
+        </property>
+        <property name="CONTACTADDRESS" type="string">
+            <column name="CONTACTADDRESS" length="1024"/>
+        </property>
+        <property name="SALARAY" type="big_decimal">
+            <column name="SALARAY" length="10" precision="2"/>
         </property>
         <property name="DATEOUTCONTRACT" type="date">
             <column name="DATEOUTCONTRACT"/>
@@ -44,20 +41,26 @@
         <property name="LICENSEDPROFESSIONALNO" type="string">
             <column name="LICENSEDPROFESSIONALNO" length="20"/>
         </property>
+        <property name="WORKING_UNIT" type="string">
+            <column name="WORKING_UNIT" length="128"/>
+        </property>
         <property name="CMD_ACQUIRE" type="string">
             <column name="CMD_ACQUIRE" length="128"/>
         </property>
         <property name="WORKING_POSITION" type="integer">
             <column name="WORKING_POSITION"/>
         </property>
-        <many-to-one name="REL_R_MOVEMENTTYPE" class="com.LMS.data.R_MOVEMENTTYPE" cascade="none">
+        <property name="REAL_POSITION" type="integer">
+            <column name="REAL_POSITION"/>
+        </property>
+        <many-to-one name="REL_MOVEMENTTYPE" class="com.LMS.data.R_MOVEMENTTYPE" cascade="none">
             <column name="MOVEMENTTYPEID" not-null="true"/>
         </many-to-one>
-        <many-to-one name="REL_R_SALARYBENEFIT" class="com.LMS.data.R_SARALYBENEFIT" cascade="none">
-            <column name="SALARYBENEFITID"/>
+        <many-to-one name="REL_SALARYBENEFIT" class="com.LMS.data.R_SARALYBENEFIT" cascade="none">
+            <column name="SARALYBENEFITID"/>
         </many-to-one>
-        <many-to-one name="REL_R_UNIT" class="com.LMS.data.R_UNIT" cascade="none">
-            <column name="WORKING_UNIT"/>
+        <many-to-one name="REL_POSITION_CHAIR" class="com.LMS.data.POSITION_CHAIR" cascade="none">
+            <column name="POSITIONID"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

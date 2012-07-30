@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" springFile="LMS.spring.xml" type="DataService" CRUDService="true" class="com.LMS.LMS" id="LMS">
     <operation name="q_Chair_GOV" operationType="other">
-        <parameter isList="false" typeRef="java.lang.Integer" name="id"/>
         <parameter isList="false" typeRef="java.lang.Integer" name="uid"/>
-        <return isList="false" typeRef="com.LMS.data.output.Q_Chair_GOVRtnType"/>
+        <return isList="true" typeRef="com.LMS.data.output.Q_Chair_GOVRtnType"/>
     </operation>
     <operation name="getDocById" operationType="hqlquery">
         <parameter isList="false" typeRef="java.lang.Integer" name="id"/>
         <return isList="true" typeRef="com.LMS.data.LMS_BASIC_DOC"/>
+    </operation>
+    <operation name="q_Chair_GOV2" operationType="other">
+        <return isList="true" typeRef="com.LMS.data.output.Q_Chair_GOV2RtnType"/>
     </operation>
     <dataobjects>
         <dataobject supportsQuickData="true" javaType="com.LMS.data.HR_LEAVE_REQ">
@@ -405,24 +407,25 @@
                 <noChange>read</noChange>
                 <noChange>update</noChange>
             </element>
-            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POSITIONID"/>
-            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="PICID"/>
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PERSONALNO"/>
+            <element allowNull="false" isList="false" typeRef="java.util.Date" name="ACTIVEDATE"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="PICID"/>
             <element allowNull="true" isList="false" typeRef="java.lang.String" name="TAXNO"/>
             <element allowNull="true" isList="false" typeRef="java.util.Date" name="EMPLOYDATE"/>
-            <element allowNull="false" isList="false" typeRef="java.util.Date" name="ACTIVEDATE"/>
             <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POS_LEVEL_LAST_XXX"/>
-            <element allowNull="true" isList="false" typeRef="java.lang.Character" name="RETIREDYEAR"/>
-            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CONTACTADDRESS"/>
             <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="POS_LEVEL_NEW_XXX"/>
-            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="SALARY"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="RETIREDYEAR"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="CONTACTADDRESS"/>
+            <element allowNull="true" isList="false" typeRef="java.math.BigDecimal" name="SALARAY"/>
             <element allowNull="true" isList="false" typeRef="java.util.Date" name="DATEOUTCONTRACT"/>
             <element allowNull="true" isList="false" typeRef="java.lang.String" name="LICENSEDPROFESSIONALNO"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.String" name="WORKING_UNIT"/>
             <element allowNull="true" isList="false" typeRef="java.lang.String" name="CMD_ACQUIRE"/>
             <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="WORKING_POSITION"/>
-            <element allowNull="false" isList="false" typeRef="com.LMS.data.R_MOVEMENTTYPE" name="REL_R_MOVEMENTTYPE"/>
-            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_SARALYBENEFIT" name="REL_R_SALARYBENEFIT"/>
-            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT" name="REL_R_UNIT"/>
+            <element allowNull="true" isList="false" typeRef="java.lang.Integer" name="REAL_POSITION"/>
+            <element allowNull="false" isList="false" typeRef="com.LMS.data.R_MOVEMENTTYPE" name="REL_MOVEMENTTYPE"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.R_SARALYBENEFIT" name="REL_SALARYBENEFIT"/>
+            <element allowNull="true" isList="false" typeRef="com.LMS.data.POSITION_CHAIR" name="REL_POSITION_CHAIR"/>
         </dataobject>
         <dataobject supportsQuickData="true" javaType="com.LMS.data.PMS_PROJECT">
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="PROJECT_ID">
@@ -676,6 +679,7 @@
             <element allowNull="true" isList="false" typeRef="com.LMS.data.R_LEVEL" name="REL_POS_LEVEL"/>
             <element allowNull="true" isList="false" typeRef="com.LMS.data.R_PERSONALTYPE" name="REL_POSONAL_TYPE"/>
             <element allowNull="true" isList="false" typeRef="com.LMS.data.R_POSITIONSTATUS" name="REL_POSITIONSTATUS"/>
+            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_02_EMPLOYEE" name="pim_02_employees"/>
         </dataobject>
         <dataobject supportsQuickData="true" javaType="com.LMS.data.POSITION_CHAIR_GOV">
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="CHAIR_ID">
@@ -1135,7 +1139,6 @@
             <element allowNull="true" isList="false" typeRef="com.LMS.data.R_UNIT" name="REL_UNIT_PARENT"/>
             <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
             <element allowNull="true" isList="true" typeRef="com.LMS.data.POSITION_CHAIR" name="position_chairs"/>
-            <element allowNull="true" isList="true" typeRef="com.LMS.data.PIM_02_EMPLOYEE" name="pim_02_employees"/>
         </dataobject>
         <dataobject supportsQuickData="true" javaType="com.LMS.data.R_UNITTYPE">
             <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="UNITTYPEID">
@@ -1190,9 +1193,26 @@
             <element allowNull="true" isList="false" typeRef="java.lang.String" name="DESC"/>
             <element allowNull="true" isList="true" typeRef="com.LMS.data.R_UNIT" name="r_units"/>
         </dataobject>
+        <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_Chair_GOV2RtnType">
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="uid"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="surname"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="personalType"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="c4"/>
+        </dataobject>
         <dataobject supportsQuickData="false" javaType="com.LMS.data.output.Q_Chair_GOVRtnType">
-            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="chair_id"/>
-            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="empid"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="uid"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="empID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="name"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="surname"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="personalType"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="chairID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.Integer" name="posID"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="unit"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posManage"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posWork"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posLevel"/>
+            <element allowNull="false" isList="false" typeRef="java.lang.String" name="posType"/>
         </dataobject>
     </dataobjects>
 </service>

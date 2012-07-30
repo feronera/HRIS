@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *  LMS.R_POSITION_WORK_STATUS
- *  07/26/2555 21:35:19
+ *  07/29/2555 15:37:25
  * 
  */
 public class R_POSITION_WORK_STATUS {

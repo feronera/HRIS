@@ -7,10 +7,41 @@
 WHERE doc.DOCID =  :id
     </query>
     <query name="Q_Chair_GOV" comment="Select the government employee information from POSTION_CHAIR, PIM01 and PIM02.">
-        <query-param name="id" type="java.lang.Integer"/>
         <query-param name="uid" type="java.lang.Integer"/>
-        select chair.CHAIR_ID as chair_id, chair.POSITIONID as empid
-from POSITION_CHAIR chair
-where (chair_id = :id)
+        SELECT
+pim01.UID as uid,
+pim02.PERSONALNO as empID,
+pim01.NAMETH as name,
+pim01.SURNAMETH as surname,
+pim01.REL_PERSONALTYPE.NAME as personalType,
+pim02.REL_POSITION_CHAIR.CHAIR_ID as chairID,
+pim02.REL_POSITION_CHAIR.POSITIONID as posID,
+pim02.REL_POSITION_CHAIR.REL_UNIT.UNIT_NAME as unit,
+pim02.REL_POSITION_CHAIR.REL_POS_MANAGE.NAME as posManage,
+pim02.REL_POSITION_CHAIR.REL_POS_WORK.NAME as posWork,
+pim02.REL_POSITION_CHAIR.REL_POS_LEVEL.NAME as posLevel,
+pim02.REL_POSITION_CHAIR.REL_POSITION_TYPE.NAME as posType
+FROM
+PIM_01_GENERAL as pim01,
+PIM_02_EMPLOYEE as pim02
+WHERE   (pim01.UID = pim02.UID)
+AND (pim01.UID =:uid)
+    </query>
+    <query name="Q_Chair_GOV2">
+        SELECT
+pim01.UID as uid,
+pim01.NAMETH as name,
+pim01.SURNAMETH as surname,
+pim01.REL_PERSONALTYPE.NAME as personalType,
+(
+SELECT
+pim02.PERSONALNO as empID
+FROM
+PIM_02_EMPLOYEE as pim02
+WHERE
+pim02.UID = pim01.UID
+)
+FROM
+PIM_01_GENERAL as pim01
     </query>
 </hibernate-mapping>

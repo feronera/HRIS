@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  *  LMS.LMS_ITS_REQ
- *  07/26/2555 21:35:20
+ *  07/29/2555 15:37:26
  * 
  */
 public class LMS_ITS_REQ {

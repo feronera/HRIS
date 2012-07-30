@@ -3,6 +3,8 @@ package com.LMS;
 
 import java.util.List;
 import com.LMS.data.LMS_BASIC_DOC;
+import com.LMS.data.output.Q_Chair_GOV2RtnType;
+import com.LMS.data.output.Q_Chair_GOVRtnType;
 import com.wavemaker.json.type.TypeDefinition;
 import com.wavemaker.runtime.data.DataServiceManager;
 import com.wavemaker.runtime.data.DataServiceManagerAccess;
@@ -15,7 +17,7 @@ import com.wavemaker.runtime.service.TypedServiceReturn;
 
 /**
  *  Operations for service "LMS"
- *  07/26/2555 21:50:28
+ *  07/30/2555 10:54:46
  * 
  */
 @SuppressWarnings("unchecked")
@@ -26,17 +28,16 @@ public class LMS
     private DataServiceManager dsMgr;
     private TaskManager taskMgr;
 
-    public com.LMS.data.output.Q_Chair_GOVRtnType q_Chair_GOV(Integer id, Integer uid) {
-        List<com.LMS.data.output.Q_Chair_GOVRtnType> rtn = ((List<com.LMS.data.output.Q_Chair_GOVRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (LMSConstants.Q_Chair_GOVQueryName), id, uid));
-        if (rtn.isEmpty()) {
-            return null;
-        } else {
-            return rtn.get(0);
-        }
+    public List<Q_Chair_GOVRtnType> q_Chair_GOV(Integer uid) {
+        return ((List<Q_Chair_GOVRtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (LMSConstants.Q_Chair_GOVQueryName), uid));
     }
 
     public List<LMS_BASIC_DOC> getDocById(Integer id, PagingOptions pagingOptions) {
         return ((List<LMS_BASIC_DOC> ) dsMgr.invoke(taskMgr.getQueryTask(), (LMSConstants.getDocByIdQueryName), id, pagingOptions));
+    }
+
+    public List<Q_Chair_GOV2RtnType> q_Chair_GOV2() {
+        return ((List<Q_Chair_GOV2RtnType> ) dsMgr.invoke(taskMgr.getQueryTask(), (LMSConstants.Q_Chair_GOV2QueryName)));
     }
 
     public Object insert(Object o) {

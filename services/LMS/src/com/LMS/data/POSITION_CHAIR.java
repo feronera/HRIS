@@ -3,11 +3,13 @@ package com.LMS.data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
  *  LMS.POSITION_CHAIR
- *  07/26/2555 21:35:20
+ *  07/29/2555 15:57:01
  * 
  */
 public class POSITION_CHAIR {
@@ -38,6 +40,7 @@ public class POSITION_CHAIR {
     private R_LEVEL REL_POS_LEVEL;
     private R_PERSONALTYPE REL_POSONAL_TYPE;
     private R_POSITIONSTATUS REL_POSITIONSTATUS;
+    private Set<com.LMS.data.PIM_02_EMPLOYEE> pim_02_employees = new HashSet<com.LMS.data.PIM_02_EMPLOYEE>();
 
     public Integer getCHAIR_ID() {
         return CHAIR_ID;
@@ -245,6 +248,14 @@ public class POSITION_CHAIR {
 
     public void setREL_POSITIONSTATUS(R_POSITIONSTATUS REL_POSITIONSTATUS) {
         this.REL_POSITIONSTATUS = REL_POSITIONSTATUS;
+    }
+
+    public Set<com.LMS.data.PIM_02_EMPLOYEE> getPim_02_employees() {
+        return pim_02_employees;
+    }
+
+    public void setPim_02_employees(Set<com.LMS.data.PIM_02_EMPLOYEE> pim_02_employees) {
+        this.pim_02_employees = pim_02_employees;
     }
 
 }

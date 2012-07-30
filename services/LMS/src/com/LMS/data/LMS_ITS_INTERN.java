@@ -5,7 +5,7 @@ package com.LMS.data;
 
 /**
  *  LMS.LMS_ITS_INTERN
- *  07/26/2555 21:35:21
+ *  07/29/2555 15:37:25
  * 
  */
 public class LMS_ITS_INTERN {

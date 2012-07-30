@@ -2043,7 +2043,7 @@ wm.types = {
 			"fields": {
 				"ACTIVEDATE": {
 					"exclude": [],
-					"fieldOrder": 6,
+					"fieldOrder": 2,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2073,7 +2073,7 @@ wm.types = {
 				},
 				"DATEOUTCONTRACT": {
 					"exclude": [],
-					"fieldOrder": 12,
+					"fieldOrder": 11,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2093,7 +2093,7 @@ wm.types = {
 				},
 				"LICENSEDPROFESSIONALNO": {
 					"exclude": [],
-					"fieldOrder": 13,
+					"fieldOrder": 12,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2103,7 +2103,7 @@ wm.types = {
 				},
 				"PERSONALNO": {
 					"exclude": [],
-					"fieldOrder": 3,
+					"fieldOrder": 1,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2113,17 +2113,7 @@ wm.types = {
 				},
 				"PICID": {
 					"exclude": [],
-					"fieldOrder": 2,
-					"fieldSubType": null,
-					"include": [],
-					"isList": false,
-					"noChange": [],
-					"required": false,
-					"type": "java.lang.Integer"
-				},
-				"POSITIONID": {
-					"exclude": [],
-					"fieldOrder": 1,
+					"fieldOrder": 3,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2133,7 +2123,7 @@ wm.types = {
 				},
 				"POS_LEVEL_LAST_XXX": {
 					"exclude": [],
-					"fieldOrder": 7,
+					"fieldOrder": 6,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2143,7 +2133,7 @@ wm.types = {
 				},
 				"POS_LEVEL_NEW_XXX": {
 					"exclude": [],
-					"fieldOrder": 10,
+					"fieldOrder": 7,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2151,9 +2141,19 @@ wm.types = {
 					"required": false,
 					"type": "java.lang.Integer"
 				},
-				"REL_R_MOVEMENTTYPE": {
+				"REAL_POSITION": {
 					"exclude": [],
 					"fieldOrder": 16,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.Integer"
+				},
+				"REL_MOVEMENTTYPE": {
+					"exclude": [],
+					"fieldOrder": 17,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
@@ -2161,17 +2161,17 @@ wm.types = {
 					"required": true,
 					"type": "com.LMS.data.R_MOVEMENTTYPE"
 				},
-				"REL_R_SALARYBENEFIT": {
+				"REL_POSITION_CHAIR": {
 					"exclude": [],
-					"fieldOrder": 17,
+					"fieldOrder": 19,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
 					"noChange": [],
 					"required": false,
-					"type": "com.LMS.data.R_SARALYBENEFIT"
+					"type": "com.LMS.data.POSITION_CHAIR"
 				},
-				"REL_R_UNIT": {
+				"REL_SALARYBENEFIT": {
 					"exclude": [],
 					"fieldOrder": 18,
 					"fieldSubType": null,
@@ -2179,7 +2179,7 @@ wm.types = {
 					"isList": false,
 					"noChange": [],
 					"required": false,
-					"type": "com.LMS.data.R_UNIT"
+					"type": "com.LMS.data.R_SARALYBENEFIT"
 				},
 				"RETIREDYEAR": {
 					"exclude": [],
@@ -2189,17 +2189,17 @@ wm.types = {
 					"isList": false,
 					"noChange": [],
 					"required": false,
-					"type": "java.lang.Character"
+					"type": "java.lang.String"
 				},
-				"SALARY": {
+				"SALARAY": {
 					"exclude": [],
-					"fieldOrder": 11,
+					"fieldOrder": 10,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
 					"noChange": [],
 					"required": false,
-					"type": "java.lang.Integer"
+					"type": "java.math.BigDecimal"
 				},
 				"TAXNO": {
 					"exclude": [],
@@ -2230,6 +2230,16 @@ wm.types = {
 					"noChange": [],
 					"required": false,
 					"type": "java.lang.Integer"
+				},
+				"WORKING_UNIT": {
+					"exclude": [],
+					"fieldOrder": 13,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": false,
+					"type": "java.lang.String"
 				}
 			},
 			"internal": false,
@@ -3644,6 +3654,16 @@ wm.types = {
 					"noChange": [],
 					"required": false,
 					"type": "java.math.BigDecimal"
+				},
+				"pim_02_employees": {
+					"exclude": [],
+					"fieldOrder": 26,
+					"fieldSubType": null,
+					"include": [],
+					"isList": true,
+					"noChange": [],
+					"required": false,
+					"type": "com.LMS.data.PIM_02_EMPLOYEE"
 				}
 			},
 			"internal": false,
@@ -5425,16 +5445,6 @@ wm.types = {
 					"required": false,
 					"type": "com.LMS.data.LMS_ITS_REQ"
 				},
-				"pim_02_employees": {
-					"exclude": [],
-					"fieldOrder": 21,
-					"fieldSubType": null,
-					"include": [],
-					"isList": true,
-					"noChange": [],
-					"required": false,
-					"type": "com.LMS.data.PIM_02_EMPLOYEE"
-				},
 				"position_chairs": {
 					"exclude": [],
 					"fieldOrder": 20,
@@ -5618,9 +5628,166 @@ wm.types = {
 			"liveService": true,
 			"service": "LMS"
 		},
+		"com.LMS.data.output.Q_Chair_GOV2RtnType": {
+			"fields": {
+				"c4": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"name": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"personalType": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"surname": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"uid": {
+					"exclude": [],
+					"fieldOrder": 0,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				}
+			},
+			"internal": false,
+			"liveService": false,
+			"service": "LMS"
+		},
 		"com.LMS.data.output.Q_Chair_GOVRtnType": {
 			"fields": {
-				"chair_id": {
+				"chairID": {
+					"exclude": [],
+					"fieldOrder": 5,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"empID": {
+					"exclude": [],
+					"fieldOrder": 1,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"name": {
+					"exclude": [],
+					"fieldOrder": 2,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"personalType": {
+					"exclude": [],
+					"fieldOrder": 4,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"posID": {
+					"exclude": [],
+					"fieldOrder": 6,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.Integer"
+				},
+				"posLevel": {
+					"exclude": [],
+					"fieldOrder": 10,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"posManage": {
+					"exclude": [],
+					"fieldOrder": 8,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"posType": {
+					"exclude": [],
+					"fieldOrder": 11,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"posWork": {
+					"exclude": [],
+					"fieldOrder": 9,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"surname": {
+					"exclude": [],
+					"fieldOrder": 3,
+					"fieldSubType": null,
+					"include": [],
+					"isList": false,
+					"noChange": [],
+					"required": true,
+					"type": "java.lang.String"
+				},
+				"uid": {
 					"exclude": [],
 					"fieldOrder": 0,
 					"fieldSubType": null,
@@ -5630,15 +5797,15 @@ wm.types = {
 					"required": true,
 					"type": "java.lang.Integer"
 				},
-				"empid": {
+				"unit": {
 					"exclude": [],
-					"fieldOrder": 1,
+					"fieldOrder": 7,
 					"fieldSubType": null,
 					"include": [],
 					"isList": false,
 					"noChange": [],
 					"required": true,
-					"type": "java.lang.Integer"
+					"type": "java.lang.String"
 				}
 			},
 			"internal": false,

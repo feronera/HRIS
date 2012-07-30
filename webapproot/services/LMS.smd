@@ -11,13 +11,15 @@
 		"name": "q_Chair_GOV",
 		"operationType": "other",
 		"parameters": [{
-			"name": "id",
-			"type": "java.lang.Integer"
-		}, {
 			"name": "uid",
 			"type": "java.lang.Integer"
 		}],
-		"returnType": "com.LMS.data.output.Q_Chair_GOVRtnType"
+		"returnType": "[com.LMS.data.output.Q_Chair_GOVRtnType]"
+	}, {
+		"name": "q_Chair_GOV2",
+		"operationType": "other",
+		"parameters": null,
+		"returnType": "[com.LMS.data.output.Q_Chair_GOV2RtnType]"
 	}],
 	"serviceType": "JSON-RPC",
 	"serviceURL": "LMS.json"
